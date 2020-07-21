@@ -43,7 +43,7 @@
                     </span>
 
                     <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                        @Html.TextBoxFor(model => model.UserName, new { @class = "input100", @placeholder = "UserName"})
+                        @Html.TextBox("UserName", null,new { @class = "input100", @placeholder = "UserName"})
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
