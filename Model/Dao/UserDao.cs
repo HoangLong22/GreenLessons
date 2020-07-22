@@ -20,7 +20,7 @@ namespace Model.Dao
             db.SaveChanges();
             return entity.ID;
         }
-         public bool Update(User entity)
+        public bool Update(User entity)
         {
             try
             {

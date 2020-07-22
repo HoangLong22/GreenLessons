@@ -5,11 +5,10 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-
     [Table("New")]
     public partial class New
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        
         public long ID { get; set; }
 
         [StringLength(50)]
@@ -26,9 +25,6 @@
 
         [Display(Name = "Hình ảnh")]
         public string Image { get; set; }
-
-        [Display(Name = "Người tạo")]
-        public long? CategoryID { get; set; }
 
         [Column(TypeName = "ntext")]
         [Display(Name = "Nôi dung")]
@@ -55,6 +51,7 @@
         public bool? Status { get; set; }
 
         [StringLength(50)]
+        [Display(Name = "Người tạo")]
         public string UserBy { get; set; }
     }
 }

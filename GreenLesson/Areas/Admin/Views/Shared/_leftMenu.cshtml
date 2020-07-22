@@ -20,7 +20,7 @@
                     @Html.ActionLink("Danh sách người dùng", "Index", "User", null, new { @class = "nav-link active" })
                 </li>
             </ul>
-
+            
             <ul class="nav nav-treeview">
                 <li class="nav-item">
                     @Html.ActionLink("Thêm mới người dùng", "Create", "User", null, new { @class = "nav-link active" })
@@ -45,6 +45,11 @@
                     <i class="fas fa-angle-left right"></i>
                 </p>
             </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    @Html.ActionLink("Danh sách tin tức", "Index", "New", null, new { @class = "nav-link" })
+                </li>
+            </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
                     @Html.ActionLink("Thêm mới tin tức", "Create", "New", null, new { @class = "nav-link" })

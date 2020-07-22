@@ -14,6 +14,9 @@
             };
             finder.popup();
         })
+        var editor = CKEDITOR.replace('txtcontent', {
+            customConfig: '/Assets/Admin/js/plugins/ckeditor/config.js',
+        });
     </script>
 }
 <section class="content-header">
@@ -80,14 +83,14 @@
                         <div class="col-md-6">
 
                             <div class="form-group">
-                                @Html.LabelFor(model => model.CategoryID)
-                                @Html.TextBox("CategoryID", null, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.UserBy)
+                                @Html.TextBox("UserBy", null, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.UserBy, "", new { @class = "text-danger" })
                             </div>
 
                             <div class="form-group">
                                 @Html.LabelFor(model => model.Content)
-                                @Html.TextBox("Content", null, new { @class = "form-control" })
+                                @Html.TextArea("Content", new  {@class = "form-control" , id = "txtcontent" })
                                 @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
                             </div>
                             <!-- /.form-group -->
