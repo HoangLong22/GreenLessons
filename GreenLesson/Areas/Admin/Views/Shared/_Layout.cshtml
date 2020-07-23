@@ -215,9 +215,15 @@
             </div>
             <!-- /.sidebar -->
         </aside>
-
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+            
+            @if(TempData["AlertMessage"] != null)
+            {
+            <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+                @TempData["AlertMessage"]
+            </div>
+            }
             @RenderBody()
         </div>
         <!-- /.content-wrapper -->

@@ -1,31 +1,114 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<section class="home-banner-area">
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-md-auto"></div>
+            <div class="col-md-11">
+                <div class="home-banner-wrap">
+                    <h2>Không ngừng truyền tải kiến thức</h2>
+                    <p>Nghiên cứu bất kỳ chủ đề, bất cứ lúc nào. Chia sẻ kho tiếng anh lớn nhất từ trước tới nay!</p>
+                    <form class="input" action="" method="get">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="query" placeholder="Bạn muốn tìm bài giảng nào?">
+                            <div class="input-group-append">
+                                <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="home-fact-area">
+    <div class="container-lg">
+        <div class="row">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+            <div class="col-md-4 d-flex">
+                <div class="home-fact-box mr-md-auto ml-auto mr-auto">
+                    <i class="fas fa-bullseye float-left"></i>
+                    <div class="text-box">
+                        <h4>
+                            Bài Giảng Trực Tuyến
+                        </h4>
+                        <p>Khám Phá Một Loạt Chủ Đề Nới</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 d-flex">
+                <div class="home-fact-box mr-md-auto ml-auto mr-auto">
+                    <i class="fa fa-check float-left"></i>
+                    <div class="text-box">
+                        <h4>Hướng Dẫn Chuyên Mô</h4>
+                        <p>Tìm Khóa Học Phù Hợp Với Bạn</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 d-flex">
+                <div class="home-fact-box mr-md-auto ml-auto mr-auto">
+                    <i class="fa fa-clock float-left"></i>
+                    <div class="text-box">
+                        <h4>Truy Cập Trọn Đời</h4>
+                        <p>Học Theo Lịch Trình Của Bạn</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+</section>
+
+<section class="course-carousel-area">
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h2 class="course-carousel-title">Khoá Học mới nhất</h2>
+            </div>
+            <div class="container">
+                <div class="row">
+                    @*@foreach (var item in listKhoaHocMoi)
+                    {
+                        <div class="col-md-3">
+                            <div class="course-carousel">
+                                <div class="course-box-wrap">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Courses" asp-action="Details" asp-route-id="@item.Id">
+                                        <div class="course-box">
+                                            <div class="course-image">
+                                                <img src="~/Uploads/@item.Thumbnail" alt="" class="img-fluid" style="width:auto; height:180px;">
+                                            </div>
+                                            <div class="course-details">
+                                                <h5 class="title">@Html.DisplayFor(modelItem => item.Title)</h5>
+                                                <p class="instructors">
+                                                    @Html.DisplayFor(modelItem => item.User.FirstName)
+                                                    @Html.DisplayFor(modelItem => item.User.LastName)
+                                                    <span class="rating">
+                                                        <i class="fas fa-star filled"></i>&nbsp
+                                                        <i class="fas fa-star filled"></i>
+                                                        <i class="fas fa-star filled"></i>
+                                                        <i class="fas fa-star filled"></i>
+                                                        <i class="fas fa-star filled"></i>
+                                                    </span>
+                                                </p>
+                                                <p class="category text-right"> @Html.DisplayFor(modelItem => item.Category.Name)</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }*@
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+</section>
+
+<style>
+</style>

@@ -14,7 +14,7 @@ namespace GreenLesson.Areas.Admin.Controllers
     {
         private GreenLessonDbContext db = new GreenLessonDbContext();
         // GET: Admin/New
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 5)
         {
             var dao = new NewDao();
             var model = dao.ListAllPaging(searchString, page, pageSize);
@@ -25,6 +25,7 @@ namespace GreenLesson.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            SetViewBag();
             return View();
         }
 
@@ -60,8 +61,22 @@ namespace GreenLesson.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            SetViewBag();
             return View(news);
+        }
+
+        public void SetViewBag(long? selectedId = null)
+        {
+            var dao = new UserDao();
+            ViewBag.UserBy = new SelectList(dao.ListAll(),"Name", "Name", selectedId);
+
+        }
+
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            new NewDao().Delete(id);
+            return RedirectToAction("Index");
         }
     }
 }

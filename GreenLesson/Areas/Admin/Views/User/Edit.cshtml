@@ -4,6 +4,21 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+@section jsFooter {
+    <script>
+        $('#btnSelectImage').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#txtImage').val(url);
+            };
+            finder.popup();
+        })
+        var editor = CKEDITOR.replace('txtcontent', {
+            customConfig: '/Assets/Admin/js/plugins/ckeditor/config.js',
+        });
+    </script>
+}
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -56,6 +71,15 @@
                                 @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
 
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Image)
+                                <div class="col-md-5">
+                                    @Html.TextBox("Image", null, new { @class = "form-control", id = "txtImage" })
+                                    <a id="btnSelectImage" href="#">Chọn hình ảnh</a>
+                                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                                </div>
                             </div>
 
                             <div class="form-group">

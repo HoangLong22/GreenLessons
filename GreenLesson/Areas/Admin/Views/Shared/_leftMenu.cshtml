@@ -17,13 +17,21 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    @Html.ActionLink("Danh sách người dùng", "Index", "User", null, new { @class = "nav-link active" })
+                    @*@Html.ActionLink("Danh sách người dùng", "Index", "User", null, new { @class = "nav-link active" })*@
+                    <a href="/Admin/User/Index" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Danh sách người dùng</p>
+                    </a>
                 </li>
             </ul>
             
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    @Html.ActionLink("Thêm mới người dùng", "Create", "User", null, new { @class = "nav-link active" })
+                    @*@Html.ActionLink("Thêm mới người dùng", "Create", "User", null, new { @class = "nav-link active" })*@
+                    <a href="/Admin/User/Create" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Thêm mới người dùng</p>
+                    </a>
                 </li>
             </ul>
         </li>
@@ -39,7 +47,7 @@
         </li>
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-copy"></i>
+                <i class="fas fa-newspaper"></i>
                 <p>
                     Quản lý tin tức
                     <i class="fas fa-angle-left right"></i>
@@ -47,7 +55,11 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    @Html.ActionLink("Danh sách tin tức", "Index", "New", null, new { @class = "nav-link" })
+                    @*@Html.ActionLink("Danh sách tin tức", "Index", "New", null, new { @class = "nav-link" })*@
+                    <a href="/Admin/New/Index" class="nav-link">
+                        <i class="fas fa-file-alt"></i>
+                        <p>Danh sách tin tức tin tức</p>
+                    </a>
                 </li>
             </ul>
             <ul class="nav nav-treeview">

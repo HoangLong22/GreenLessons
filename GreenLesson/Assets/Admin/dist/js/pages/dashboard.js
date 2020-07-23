@@ -6,10 +6,13 @@
  **/
 
 /* global moment:false, Chart:false, Sparkline:false */
-
+//$(function () {
+//    $('#AlertBox').removeClass('hide');
+//    $('#AlertBox').delay(1000).slieUp(500);
+//});
 $(function () {
   'use strict'
-
+    
   // Make the dashboard widgets sortable Using jquery UI
   $('.connectedSortable').sortable({
     placeholder: 'sort-highlight',

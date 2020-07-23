@@ -1,0 +1,13 @@
+﻿@model List<Model.EF.Menu>
+
+    <ul class="navbar-nav flex-grow-1">
+        @foreach (var item in Model)
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="@item.Link" target="@item.Target">@item.Text</a>
+            </li>
+        }
+
+    </ul>
+
+</div>

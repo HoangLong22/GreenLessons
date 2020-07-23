@@ -1,0 +1,9 @@
+﻿@model List<Model.EF.Menu>
+    <ul class="nav justify-content-md-end footer-menu">
+        @foreach (var item in Model)
+        {
+            <li class="nav-item">
+                <a class="nav-link" href="@item.Link" target="@item.Target">@item.Text</a>
+            </li>
+        }
+    </ul>

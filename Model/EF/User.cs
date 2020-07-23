@@ -24,6 +24,10 @@
         public string Name { get; set; }
 
         [StringLength(50)]
+        [Display(Name = "Avartar")]
+        public string Image { get; set; }
+
+        [StringLength(50)]
         [Display(Name = "Số điện thoại")]
         public string Phone { get; set; }
 

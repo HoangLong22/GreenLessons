@@ -59,6 +59,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\FooterDao.cs" />
+    <Compile Include="Dao\MenuDao.cs" />
     <Compile Include="Dao\NewDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
     <Compile Include="EF\Abount.cs" />

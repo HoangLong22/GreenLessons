@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PagedList;
+using System.ComponentModel.Design;
+
 namespace Model.Dao
 {
     public class UserDao
@@ -20,6 +22,11 @@ namespace Model.Dao
             db.SaveChanges();
             return entity.ID;
         }
+
+        public List<User> ListAll()
+        {
+            return db.Users.Where(x => x.Status == true).ToList();
+        }
         public bool Update(User entity)
         {
             try
@@ -30,6 +37,7 @@ namespace Model.Dao
                 {
                     user.Password = entity.Password;
                 }
+                user.Image = entity.Image;
                 user.Email = entity.Email;
                 user.Phone = entity.Phone;
                 user.Address = entity.Address;
@@ -82,7 +90,14 @@ namespace Model.Dao
                 }
             }
         }
-     
+     public bool  ChangeStatus(long id)
+        {
+            var user = db.Users.Find(id);
+            user.Status = !user.Status;
+            db.SaveChanges();
+            return user.Status;
+        }
+
         public bool Delete(int id)
         {
             try

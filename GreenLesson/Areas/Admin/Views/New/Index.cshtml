@@ -30,6 +30,11 @@
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Danh sách người dùng</h3>
+                        <div class="card-tools">
+                            <ul class="pagination pagination-sm float-right">
+                                <li class="page-item"><a class="page-link" href="/Admin/New/Create">Thêm mới tin tức</a></li>
+                            </ul>
+                        </div>
                     </div>
                     @using (Html.BeginForm("Index", "New", FormMethod.Get))
                     {
@@ -82,7 +87,7 @@
                                        
                                         <td>@item.Status</td>
                                         <td>
-                                            <a href="/Admin/User/Edit/@item.ID">Cập nhật | </a>
+                                            <a href="/Admin/New/Edit/@item.ID">Cập nhật | </a>
                                             @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
                                        {
                                            Confirm = "Bạn có muốn xoá?",
@@ -108,3 +113,17 @@
     <!-- /.container-fluid -->
 </section>
 
+<style>
+    .pagination a {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    .active a {
+        z-index: 3;
+        color: #ffffff;
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+</style>

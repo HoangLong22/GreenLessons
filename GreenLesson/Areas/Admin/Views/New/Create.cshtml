@@ -62,11 +62,7 @@
                                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                             </div>
                             <!-- /.form-group -->
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.MetaTitle)
-                                @Html.TextBox("MetaTitle", null, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.MetaTitle, "", new { @class = "text-danger" })
-                            </div>
+                            
 
                             <div class="form-group">
                                 @Html.LabelFor(model => model.Image)
@@ -81,27 +77,32 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.MetaTitle)
+                                @Html.TextBox("MetaTitle", null, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MetaTitle, "", new { @class = "text-danger" })
+                            </div>
 
                             <div class="form-group">
                                 @Html.LabelFor(model => model.UserBy)
-                                @Html.TextBox("UserBy", null, new { @class = "form-control" })
+                                @Html.DropDownList("UserBy", null, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.UserBy, "", new { @class = "text-danger" })
                             </div>
 
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.Content)
-                                @Html.TextArea("Content", new  {@class = "form-control" , id = "txtcontent" })
-                                @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
-                            </div>
                             <!-- /.form-group -->
                             <div class="form-group">
                                 @Html.LabelFor(model => model.Status)
-                                @Html.TextBox("Status",null, new { @class = "form-control" })
+                                @Html.TextBox("Status", null, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
                             </div>
                             <!-- /.form-group -->
                         </div>
                         <!-- /.col -->
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Content)
+                            @Html.TextArea("Content", new { @class = "form-control", id = "txtcontent" })
+                            @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                        </div>
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
                                 <input type="submit" value="Thêm mới" class="btn btn-default" />

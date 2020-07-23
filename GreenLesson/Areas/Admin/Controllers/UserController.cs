@@ -13,7 +13,7 @@ namespace GreenLesson.Areas.Admin.Controllers
     public class UserController : BaseController
     {
         // GET: Admin/User
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 5)
         {
             var dao = new UserDao();
             var model = dao.ListAllPaging(searchString, page, pageSize);
@@ -38,6 +38,7 @@ namespace GreenLesson.Areas.Admin.Controllers
                 long id = dao.Insert(user);
                 if(id > 0)
                 {
+                    SetAlert("Thêm thành công", "success");
                     return RedirectToAction("Index", "User");
                 }
                 else
@@ -69,11 +70,12 @@ namespace GreenLesson.Areas.Admin.Controllers
                 var result = dao.Update(user);
                 if (result)
                 {
+                    SetAlert("Cập nhật thành công", "success");
                     return RedirectToAction("Index", "User");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Cập nhật thành công");
+                    ModelState.AddModelError("", "Cập nhật không thành công");
                 }
             }
             return View("Index");
@@ -84,6 +86,16 @@ namespace GreenLesson.Areas.Admin.Controllers
         {
             new UserDao().Delete(id);
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public JsonResult ChangeStatus(long id)
+        {
+            var result = new UserDao().ChangeStatus(id);
+            return Json(new
+            {
+                status = result
+            });
         }
     }
 }

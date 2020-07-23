@@ -1,0 +1,7 @@
+﻿@model List<Model.EF.Menu>
+    <div class="dropdown-content">
+        @foreach (var item in Model)
+        {
+            <a class="nav-link text-dark"  href="@item.Link" target="@item.Target"><i class="fa fa-user-plus" aria-hidden="true"></i>@item.Text</a>
+        }
+    </div>
