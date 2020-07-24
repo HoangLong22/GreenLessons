@@ -64,51 +64,9 @@
     </div>
 </section>
 
-<section class="course-carousel-area">
-    <div class="container-lg">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
-                <h2 class="course-carousel-title">Khoá Học mới nhất</h2>
-            </div>
-            <div class="container">
-                <div class="row">
-                    @*@foreach (var item in listKhoaHocMoi)
-                    {
-                        <div class="col-md-3">
-                            <div class="course-carousel">
-                                <div class="course-box-wrap">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Courses" asp-action="Details" asp-route-id="@item.Id">
-                                        <div class="course-box">
-                                            <div class="course-image">
-                                                <img src="~/Uploads/@item.Thumbnail" alt="" class="img-fluid" style="width:auto; height:180px;">
-                                            </div>
-                                            <div class="course-details">
-                                                <h5 class="title">@Html.DisplayFor(modelItem => item.Title)</h5>
-                                                <p class="instructors">
-                                                    @Html.DisplayFor(modelItem => item.User.FirstName)
-                                                    @Html.DisplayFor(modelItem => item.User.LastName)
-                                                    <span class="rating">
-                                                        <i class="fas fa-star filled"></i>&nbsp
-                                                        <i class="fas fa-star filled"></i>
-                                                        <i class="fas fa-star filled"></i>
-                                                        <i class="fas fa-star filled"></i>
-                                                        <i class="fas fa-star filled"></i>
-                                                    </span>
-                                                </p>
-                                                <p class="category text-right"> @Html.DisplayFor(modelItem => item.Category.Name)</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    }*@
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+@{Html.RenderAction("New", "New");}
+
+@{Html.RenderAction("Lesson", "Lesson");}
 
 <style>
 </style>

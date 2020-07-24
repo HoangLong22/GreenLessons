@@ -1,0 +1,145 @@
+﻿@model GreenLesson.Models.RegisterModel
+@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/Assets/Admin/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Assets/Admin/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Assets/Admin/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Assets/Admin/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Assets/Admin/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Assets/Admin/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Assets/Admin/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Assets/Admin/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt>
+                    <img src="~/Assets/Admin/images/img-01.png" alt="IMG">
+                </div>
+                @using (Html.BeginForm("Register","User", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <h4>Đăng ký thành viên</h4>
+                        <hr />
+                        <div class="form-group">@Html.ValidationSummary(true, "", new { @class = "text-danger" })</div>
+                           @if(ViewBag.Success != null){
+                               <div class="alert alert-success">@ViewBag.Success</div> 
+                        }
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UserName)
+
+                            @Html.TextBox("UserName", null, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger", @placeholder = "Tên đăng nhập" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Password)
+
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ConfirmPassword)
+
+                            @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name)
+
+                            @Html.TextBox("Name", null, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        @*<div class="form-group">
+                            @Html.LabelFor(model => model.Image)
+                            <div class="col-md-6">
+                                @Html.TextBox("Image", null, new { @class = "form-control", id = "txtImage" })
+                                <a id="btnSelectImage" href="#">Chọn hình ảnh</a>
+                                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>*@
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Phone)
+
+                            @Html.TextBox("Phone", null, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email)
+                            @Html.TextBox("Email", null, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Address)
+
+                            @Html.TextBox("Address", null, null, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Đăng ký" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--===============================================================================================-->
+    <script src="~/Assets/Admin/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Assets/Admin/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Assets/Admin/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Assets/Admin/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Assets/Admin/vendor/tilt/tilt.jquery.min.js"></script>
+    <script>
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/Assets/Admin/js/main.js"></script>
+
+</body>
+</html>

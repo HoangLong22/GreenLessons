@@ -1,0 +1,45 @@
+﻿@model List<Model.EF.Lesson>
+<section class="course-carousel-area">
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h2 class="course-carousel-title">Tin tức mới nhất</h2>
+            </div>
+            <div class="container">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-3">
+                            <div class="course-carousel">
+                                <div class="course-box-wrap">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Courses" asp-action="Details" asp-route-id="@item.ID">
+                                        <div class="course-box">
+                                            <div class="course-image">
+                                                <img src="@item.Image" alt="" class="img-fluid" style="width:auto; height:180px;">
+                                            </div>
+                                            <div class="course-details">
+                                                <h5 class="title">@item.Name</h5>
+                                                <p class="instructors">
+                                                    @item.UserBy
+                                                    <span class="rating">
+                                                        <i class="fas fa-star filled"></i>&nbsp
+                                                        <i class="fas fa-star filled"></i>
+                                                        <i class="fas fa-star filled"></i>
+                                                        <i class="fas fa-star filled"></i>
+                                                        <i class="fas fa-star filled"></i>
+                                                    </span>
+                                                </p>
+                                                <p class="category text-right"> @item.CategoryName</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

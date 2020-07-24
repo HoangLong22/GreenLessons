@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PagedList;
 using System.ComponentModel.Design;
+using Common;
 
 namespace Model.Dao
 {
@@ -68,7 +69,7 @@ namespace Model.Dao
         {
             return db.Users.Find(id);
         }
-        public int Login(string userName, string passWord)
+        public int Login(string userName, string passWord, bool isLoginAdmin=false)
         {
             var result = db.Users.SingleOrDefault(x => x.UserName == userName);
             if(result == null)
@@ -77,19 +78,45 @@ namespace Model.Dao
             }
             else
             {
-                if(result.Status == false)
+                if (isLoginAdmin == true)
                 {
-                    return -1;
+                    if(result.GroupID == CommonConstants.ADMIN_GROUP || result.GroupID == CommonConstants.MOD_GROUP)
+                    {
+                        if (result.Status == false)
+                        {
+                            return -1;
+                        }
+                        else
+                        {
+                            if (result.Password == passWord)
+                                return 1;
+                            else
+                                return -2;
+                        }
+                    }
+                    else
+                    {
+                        return -3;
+                    }
                 }
                 else
                 {
-                    if (result.Password == passWord)
-                        return 1;
+                    if (result.Status == false)
+                    {
+                        return -1;
+                    }
                     else
-                        return -2;
+                    {
+                        if (result.Password == passWord)
+                            return 1;
+                        else
+                            return -2;
+                    }
                 }
             }
+            
         }
+
      public bool  ChangeStatus(long id)
         {
             var user = db.Users.Find(id);
@@ -111,6 +138,16 @@ namespace Model.Dao
             {
                 return false;
             }
+        }
+
+        public bool CheckUserName (string userName)
+        {
+            return db.Users.Count(x => x.UserName == userName) > 0;
+        }
+
+        public bool CheckEmail(string email)
+        {
+            return db.Users.Count(x => x.Email == email) > 0;
         }
     }
 }

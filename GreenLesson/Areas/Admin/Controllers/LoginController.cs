@@ -23,7 +23,7 @@ namespace GreenLesson.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dao = new UserDao();
-                var result = dao.Login(model.UserName, Encryptor.MD5Hash(model.Password));
+                var result = dao.Login(model.UserName, Encryptor.MD5Hash(model.Password), true);
                 if (result == 1)
                 {
                     var user = dao.GetById(model.UserName);
@@ -44,6 +44,10 @@ namespace GreenLesson.Areas.Admin.Controllers
                 else if (result == -2)
                 {
                     ModelState.AddModelError("", "Mật khẩu không đúng");
+                }
+                else if (result == -3)
+                {
+                    ModelState.AddModelError("", "Tài khoản của bạn không có quyền đăng nhập");
                 }
                 else
                 {

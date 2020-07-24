@@ -36,7 +36,7 @@
             </ul>
         </li>
 
-        <li class="nav-item">
+        @*<li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
@@ -44,7 +44,7 @@
                     <span class="right badge badge-danger">New</span>
                 </p>
             </a>
-        </li>
+        </li>*@
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
                 <i class="fas fa-newspaper"></i>
@@ -62,42 +62,31 @@
                     </a>
                 </li>
             </ul>
-            <ul class="nav nav-treeview">
+            @*<ul class="nav nav-treeview">
                 <li class="nav-item">
                     @Html.ActionLink("Thêm mới tin tức", "Create", "New", null, new { @class = "nav-link" })
                 </li>
-            </ul>
+            </ul>*@
         </li>
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-chart-pie"></i>
                 <p>
-                    Charts
+                    Quản lý bài giảng
                     <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
             <ul class="nav nav-treeview">
+               
                 <li class="nav-item">
-                    <a href="pages/charts/chartjs.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>ChartJS</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/charts/flot.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Flot</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/charts/inline.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Inline</p>
+                    <a href="/Admin/Lesson/Index" class="nav-link">
+                        <i class="fas fa-file-alt"></i>
+                        <p>Danh sách tin tức tin tức</p>
                     </a>
                 </li>
             </ul>
         </li>
-        <li class="nav-item has-treeview">
+        @*<li class="nav-item has-treeview">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-tree"></i>
                 <p>
@@ -415,8 +404,8 @@
                 <i class="nav-icon fas fa-file"></i>
                 <p>Documentation</p>
             </a>
-        </li>
-        <li class="nav-header">MULTI LEVEL EXAMPLE</li>
+        </li>*@
+        @*<li class="nav-header">MULTI LEVEL EXAMPLE</li>
         <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="fas fa-circle nav-icon"></i>
@@ -499,6 +488,6 @@
                 <i class="nav-icon far fa-circle text-info"></i>
                 <p>Informational</p>
             </a>
-        </li>
+        </li>*@
     </ul>
 </nav>

@@ -19,6 +19,20 @@ namespace GreenLesson
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "GreenLesson.Controllers" }
             );
+
+            routes.MapRoute(
+               name: "Register",
+               url: "{controller}/{action}/{id}",
+               defaults: new { controller = "User", action = "Register", id = UrlParameter.Optional },
+               namespaces: new[] { "GreenLesson.Controllers" }
+           );
+
+            routes.MapRoute(
+               name: "Login",
+               url: "{controller}/{action}/{id}",
+               defaults: new { controller = "User", action = "Login", id = UrlParameter.Optional },
+               namespaces: new[] { "GreenLesson.Controllers" }
+           );
         }
     }
 }

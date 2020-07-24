@@ -1,23 +1,21 @@
-﻿using GreenLesson.Common;
-using Model.Dao;
+﻿using Model.Dao;
 using Model.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using PagedList;
-using System.Net;
 
 namespace GreenLesson.Areas.Admin.Controllers
 {
-    public class NewController : BaseController
+    public class LessonController : BaseController
     {
         private GreenLessonDbContext db = new GreenLessonDbContext();
         // GET: Admin/New
         public ActionResult Index(string searchString, int page = 1, int pageSize = 5)
         {
-            var dao = new NewDao();
+            var dao = new LessonDao();
             var model = dao.ListAllPaging(searchString, page, pageSize);
             ViewBag.SearchString = searchString;
             return View(model);
@@ -26,50 +24,39 @@ namespace GreenLesson.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            SetViewBags();
             SetViewBag();
             return View();
         }
 
-        //[HttpPost]
-        //[ValidateInput(false)]
-
-        //public ActionResult Create(New news)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var dao = new NewDao();
-        //        long id = dao.Insert(news);
-        //        if (id > 0)
-        //        {
-        //            return RedirectToAction("Index", "New");
-        //        }
-        //        else
-        //        {
-        //            ModelState.AddModelError("", "Thêm mới thành công");
-        //        }
-        //    }
-        //    return View("Index");
-        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Create([Bind(Include = "ID,Name,Description,MetaTitle,Image,UserBy,Content,Status")] New news)
+        public ActionResult Create([Bind(Include = "ID,Name,Description,MetaTitle,CategoryName,Image,UserBy,Content,Status")] Lesson lessons)
         {
             if (ModelState.IsValid)
             {
-                db.News.Add(news);
+                db.Lessons.Add(lessons);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            SetViewBags();
             SetViewBag();
-            return View(news);
+            return View(lessons);
         }
 
         public void SetViewBag(long? selectedId = null)
         {
             var dao = new UserDao();
-            ViewBag.UserBy = new SelectList(dao.ListAll(),"Name", "Name", selectedId);
+            ViewBag.UserBy = new SelectList(dao.ListAll(), "Name", "Name", selectedId);
+
+        }
+
+        public void SetViewBags(long? selectedId = null)
+        {
+            var dao = new CategoryDao();
+            ViewBag.CategoryName = new SelectList(dao.ListAll(), "Name", "Name", selectedId);
 
         }
 
@@ -79,18 +66,19 @@ namespace GreenLesson.Areas.Admin.Controllers
             new NewDao().Delete(id);
             return RedirectToAction("Index");
         }
+
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            New news = db.News.Find(id);
-            if (news == null)
+            Lesson lesson = db.Lessons.Find(id);
+            if (lesson == null)
             {
                 return HttpNotFound();
             }
-            return View(news);
+            return View(lesson);
         }
 
     }

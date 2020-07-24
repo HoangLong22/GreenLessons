@@ -59,7 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\CategoryDao.cs" />
     <Compile Include="Dao\FooterDao.cs" />
+    <Compile Include="Dao\LessonDao.cs" />
     <Compile Include="Dao\MenuDao.cs" />
     <Compile Include="Dao\NewDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
@@ -67,16 +69,19 @@
     <Compile Include="EF\Category.cs" />
     <Compile Include="EF\Contact.cs" />
     <Compile Include="EF\Course.cs" />
+    <Compile Include="EF\Credential.cs" />
     <Compile Include="EF\Feedback.cs" />
     <Compile Include="EF\Footer.cs" />
     <Compile Include="EF\GreenLessonDbContext.cs" />
     <Compile Include="EF\Lesson.cs" />
     <Compile Include="EF\Menu.cs" />
     <Compile Include="EF\New.cs" />
+    <Compile Include="EF\Role.cs" />
     <Compile Include="EF\Section.cs" />
     <Compile Include="EF\SystemConfig.cs" />
     <Compile Include="EF\TypeMenu.cs" />
     <Compile Include="EF\User.cs" />
+    <Compile Include="EF\UserGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +90,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\PagedList.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{3DBB5C9E-144A-4CF3-B6EF-07953630B126}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

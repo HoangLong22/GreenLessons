@@ -1,7 +1,28 @@
 ﻿@model List<Model.EF.Menu>
-    <div class="dropdown-content">
-        @foreach (var item in Model)
-        {
-            <a class="nav-link text-dark"  href="@item.Link" target="@item.Target"><i class="fa fa-user-plus" aria-hidden="true"></i>@item.Text</a>
-        }
+@{
+    var session = (UserLogin)Session[GreenLesson.Common.CommonContants.USER_SESSCION];
+}
+@if (session == null)
+{
+    <div class="dropdown">
+        <button class="dropbtn"><i class="fas fa-user"></i> Người dùng</button>
+        <div class="dropdown-content">
+
+            @foreach (var item in Model)
+            {
+                <a class="nav-link text-dark" href="@item.Link" target="@item.Target"><i class="fa fa-user-plus" aria-hidden="true"></i>@item.Text</a>
+            }
+        </div>
     </div>
+}
+else
+{
+
+    <div class="dropdown">
+        <button class="dropbtn"><i class="fas fa-user"></i> Xin chào: @session.UserName</button>
+        <div class="dropdown-content">
+            @Html.ActionLink("Thoát","Logout","User",null, new {@class="nav-link text-dark" })
+        </div>
+    </div>
+
+}

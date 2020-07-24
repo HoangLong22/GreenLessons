@@ -26,6 +26,12 @@ namespace Model.EF
         public virtual DbSet<TypeMenu> TypeMenus { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
+        public virtual DbSet<Role> Roles { get; set; }
+
+        public virtual DbSet<Credential> Credentials { get; set; }
+
+        public virtual DbSet<UserGroup> UserGroups { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Abount>()
@@ -56,5 +62,9 @@ namespace Model.EF
                 .Property(e => e.ID)
                 .IsUnicode(false);
         }
+
+        //public System.Data.Entity.DbSet<GreenLesson.Models.LoginModel> LoginModels { get; set; }
+
+        //public System.Data.Entity.DbSet<GreenLesson.Models.RegisterModel> RegisterModels { get; set; }
     }
 }

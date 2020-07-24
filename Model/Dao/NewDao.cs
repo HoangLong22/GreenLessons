@@ -60,7 +60,12 @@ namespace Model.Dao
             return db.News.SingleOrDefault(x => x.Name == Name);
         }
 
-        public New ViewDeatil(int id)
+        public List<New> ListAll()
+        {
+            return db.News.Where(x => x.Status == true).Take(4).ToList();
+        }
+
+        public New ViewDeatil(long id)
         {
             return db.News.Find(id);
         }
