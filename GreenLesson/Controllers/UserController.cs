@@ -102,9 +102,9 @@ namespace GreenLesson.Controllers
             return View(model);
         }
 
-        private object User()
-        {
-            throw new NotImplementedException();
-        }
+        //private object User()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

@@ -10,5 +10,6 @@ namespace GreenLesson
     {
         public long UserID { set; get; }
         public string UserName { set; get; }
+       
     }
 }

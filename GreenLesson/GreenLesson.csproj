@@ -326,6 +326,7 @@
     <Content Include="Assets\Admin\fonts\montserrat\OFL.txt" />
     <Content Include="Assets\Admin\images\icons\favicon.ico" />
     <Content Include="Assets\Admin\images\img-01.png" />
+    <Content Include="Assets\Admin\js\controller\LessonController.js" />
     <Content Include="Assets\Admin\js\controller\userController.js" />
     <Content Include="Assets\Admin\js\main.js" />
     <Content Include="Assets\Admin\js\plugins\ckeditor\adapters\jquery.js" />
