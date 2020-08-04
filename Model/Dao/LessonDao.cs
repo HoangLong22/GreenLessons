@@ -26,31 +26,6 @@ namespace Model.Dao
             throw new NotImplementedException();
         }
 
-        public bool Update(New entity)
-        {
-            try
-            {
-                var lessons = db.Lessons.Find(entity.ID);
-                lessons.Name = entity.Name;
-                if (!string.IsNullOrEmpty(entity.Name))
-                {
-                    lessons.Name = entity.Name;
-                }
-                lessons.Description = entity.Description;
-                lessons.MetaTitle = entity.MetaTitle;
-                lessons.Image = entity.Image;
-                lessons.UserBy = entity.UserBy;
-                lessons.Content = entity.Content;
-                lessons.Status = entity.Status;
-                lessons.ModifiedDate = DateTime.Now;
-                db.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-        }
         public IEnumerable<Lesson> ListAllPaging(string searchString, int page, int pageSize)
         {
             IQueryable<Lesson> model = db.Lessons;
@@ -75,6 +50,33 @@ namespace Model.Dao
             {
                 var lessons = db.Lessons.Find(id);
                 db.Lessons.Remove(lessons);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool Update1(Lesson entity)
+        {
+            try
+            {
+                var lessons = db.Lessons.Find(entity.ID);
+                lessons.Name = entity.Name;
+                if (!string.IsNullOrEmpty(entity.Name))
+                {
+                    lessons.Name = entity.Name;
+                }
+                lessons.Description = entity.Description;
+                lessons.MetaTitle = entity.MetaTitle;
+                lessons.Image = entity.Image;
+                lessons.UserBy = entity.UserBy;
+                lessons.CategoryName = entity.CategoryName;
+                lessons.Content = entity.Content;
+                lessons.Status = entity.Status;
+                lessons.ModifiedDate = DateTime.Now;
                 db.SaveChanges();
                 return true;
             }

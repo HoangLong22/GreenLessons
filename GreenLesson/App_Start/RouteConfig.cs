@@ -33,6 +33,13 @@ namespace GreenLesson
                defaults: new { controller = "User", action = "Login", id = UrlParameter.Optional },
                namespaces: new[] { "GreenLesson.Controllers" }
            );
+
+            routes.MapRoute(
+              name: "About",
+              url: "{metatitle}-{id}",
+              defaults: new { controller = "About", action = "About", id = UrlParameter.Optional },
+              namespaces: new[] { "GreenLesson.Controllers" }
+          );
         }
     }
 }

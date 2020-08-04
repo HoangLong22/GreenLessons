@@ -11,7 +11,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Danh sách tin tức</h1>
+                <h1>Danh sách bài giảng</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -29,10 +29,10 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Danh sách người dùng</h3>
+                        <h3 class="card-title">Danh sách bài giảng</h3>
                         <div class="card-tools">
                             <ul class="pagination pagination-sm float-right">
-                                <li class="page-item"><a class="page-link" href="/Admin/Lesson/Create">Thêm mới tin tức</a></li>
+                                <li class="page-item"><a class="page-link" href="/Admin/Lesson/Create">Thêm mới bài giảng<a></li>
                             </ul>
                         </div>
                     </div>
@@ -62,11 +62,9 @@
                             <thead>
                                 <tr class="project-actions text-center">
                                     <th>Tên tin tức</th>
-                                    <th>Mô tả</th>
-                                    <th>Meta Title</th>
                                     <th>Hình ảnh</th>
                                     <th>Danh mục</th>
-                                    @*<th>Nội dung</th>*@
+                                    <th>Người tạo</th>
                                     <th>Trạng thái</th>
                                     <th>Tác vụ</th>
                                 </tr>
@@ -74,39 +72,39 @@
                             <tbody>
                                 @foreach (var item in Model)
                                 {
-                                    <tr id="row_@item.ID" class="project-actions text-center">
-                                        <td>@item.Name</td>
-                                        <td>@item.Description</td>
-                                        <td>@item.MetaTitle</td>
-                                        <td>
+                                <tr id="row_@item.ID" class="project-actions text-center">
+                                    <td>@item.Name</td>
 
-                                            <img src="@item.Image" style="width:150px;">
-                                        </td>
-                                        <td>@item.UserBy</td>
-                                        @*<td>@Html.Raw(@item.Content)</td>*@
+                                    <td>
 
-                                        <td><a href="#" class="btn-active">@item.Status</a></td>
-                                        <td>
-                                            <a class="btn btn-primary btn-sm" href="/Admin/Lesson/Edit/@item.ID">
-                                                <i class="fas fa-folder">
-                                                </i>
-                                                Cập nhật
-                                            </a>
-                                            <a class="btn btn-info btn-sm" href="/Admin/Lesson/Details/@item.ID">
-                                                <i class="fas fa-pencil-alt">
-                                                </i>
-                                                Chi tiết
-                                            </a>
+                                        <img src="@item.Image" style="width:150px;">
+                                    </td>
+                                    <td>@item.CategoryName</td>
+                                    <td>@item.UserBy</td>
+                                    @*<td>@Html.Raw(@item.Content)</td>*@
 
-                                            @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
-                                       {
+                                    <td><a href="#" class="btn-active">@item.Status</a></td>
+                                    <td>
+                                        <a class="btn btn-primary btn-sm" href="/Admin/Lesson/Edit/@item.ID">
+                                            <i class="fas fa-folder">
+                                            </i>
+                                            Cập nhật
+                                        </a>
+                                        <a class="btn btn-info btn-sm" href="/Admin/Lesson/Details/@item.ID">
+                                            <i class="fas fa-pencil-alt">
+                                            </i>
+                                            Chi tiết
+                                        </a>
 
-                                           Confirm = "Bạn có muốn xoá?",
-                                           OnComplete = "$('#row_" + item.ID + "').remove()",
-                                           HttpMethod = "Delete"
-                                       }, new { @class = "btn btn-danger btn-sm" })
-                                        </td>
-                                    </tr>
+                                        @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
+                                   {
+
+                                       Confirm = "Bạn có muốn xoá?",
+                                       OnComplete = "$('#row_" + item.ID + "').remove()",
+                                       HttpMethod = "Delete"
+                                   }, new { @class = "btn btn-danger btn-sm" })
+                                    </td>
+                                </tr>
                                 }
                         </table>
                         @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))

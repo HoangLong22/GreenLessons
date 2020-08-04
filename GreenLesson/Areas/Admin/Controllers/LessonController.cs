@@ -60,10 +60,11 @@ namespace GreenLesson.Areas.Admin.Controllers
 
         }
 
+        
         [HttpDelete]
         public ActionResult Delete(int id)
         {
-            new NewDao().Delete(id);
+            new LessonDao().Delete(id);
             return RedirectToAction("Index");
         }
 
@@ -79,6 +80,35 @@ namespace GreenLesson.Areas.Admin.Controllers
                 return HttpNotFound();
             }
             return View(lesson);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var lesson = new LessonDao().ViewDeatil(id);
+            return View(lesson);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
+        public ActionResult Edit(Lesson lesson)
+        {
+            if (ModelState.IsValid)
+            {
+                var dao = new LessonDao();
+
+                var result = dao.Update1(lesson);
+                if (result)
+                {
+                    SetAlert("Cập nhật thành công", "success");
+                    return RedirectToAction("Index", "Lesson");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Cập nhật không thành công");
+                }
+            }
+            return View("Index");
         }
 
     }

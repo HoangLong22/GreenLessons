@@ -30,27 +30,6 @@ namespace GreenLesson.Areas.Admin.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //[ValidateInput(false)]
-
-        //public ActionResult Create(New news)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var dao = new NewDao();
-        //        long id = dao.Insert(news);
-        //        if (id > 0)
-        //        {
-        //            return RedirectToAction("Index", "New");
-        //        }
-        //        else
-        //        {
-        //            ModelState.AddModelError("", "Thêm mới thành công");
-        //        }
-        //    }
-        //    return View("Index");
-        //}
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
@@ -71,6 +50,35 @@ namespace GreenLesson.Areas.Admin.Controllers
             var dao = new UserDao();
             ViewBag.UserBy = new SelectList(dao.ListAll(),"Name", "Name", selectedId);
 
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var news = new NewDao().ViewDeatil(id);
+            return View(news);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
+        public ActionResult Edit(New news)
+        {
+            if (ModelState.IsValid)
+            {
+                var dao = new NewDao();
+                
+                var result = dao.Update(news);
+                if (result)
+                {
+                    SetAlert("Cập nhật thành công", "success");
+                    return RedirectToAction("Index", "New");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Cập nhật không thành công");
+                }
+            }
+            return View("Index");
         }
 
         [HttpDelete]

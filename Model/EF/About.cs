@@ -7,7 +7,7 @@ namespace Model.EF
     using System.Data.Entity.Spatial;
 
     [Table("Abount")]
-    public partial class Abount
+    public partial class About
     {
         public int ID { get; set; }
 

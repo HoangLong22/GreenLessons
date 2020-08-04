@@ -12,7 +12,7 @@ namespace Model.EF
         {
         }
 
-        public virtual DbSet<Abount> Abounts { get; set; }
+        public virtual DbSet<About> Abounts { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
@@ -34,7 +34,7 @@ namespace Model.EF
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Abount>()
+            modelBuilder.Entity<About>()
                 .Property(e => e.MetaDescriptions)
                 .IsFixedLength();
 

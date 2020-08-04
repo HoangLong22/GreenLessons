@@ -157,6 +157,7 @@
     <Compile Include="Common\CommonContants.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\HasCredentialAttribute.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LessonController.cs" />
     <Compile Include="Controllers\NewController.cs" />
@@ -5002,6 +5003,8 @@
     <Content Include="Areas\Admin\Views\Lesson\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Lesson\Details.cshtml" />
     <Content Include="Areas\Admin\Views\New\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\New\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Lesson\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -5033,6 +5036,7 @@
     <Content Include="Views\Shared\Lesson.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\About\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
