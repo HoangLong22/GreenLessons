@@ -1,13 +1,28 @@
 ﻿@model List<Model.EF.Menu>
-
+@{
+    var session = (UserLogin)Session[GreenLesson.Common.CommonContants.USER_SESSION];
+}
     <ul class="navbar-nav flex-grow-1">
-        @foreach (var item in Model)
+        @if (session == null)
         {
+            foreach (var item in Model)
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="@item.Link" target="@item.Target">@item.Text</a>
+                </li>
+            }
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="@item.Link" target="@item.Target">@item.Text</a>
+                </li>
+            }
             <li class="nav-item">
-                <a class="nav-link text-dark" href="@item.Link" target="@item.Target">@item.Text</a>
+                <a class="nav-link text-dark" href="/Admin/Home" target="">Trình soạn thảo</a>
             </li>
         }
 
     </ul>
-
-</div>
