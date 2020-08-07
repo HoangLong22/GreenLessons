@@ -62,6 +62,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
@@ -149,6 +152,11 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AboutController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CourseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ExamController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FeedbackController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LessonController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
@@ -159,6 +167,7 @@
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\HasCredentialAttribute.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LessonController.cs" />
     <Compile Include="Controllers\NewController.cs" />
@@ -171,6 +180,7 @@
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\UserLogin.cs" />
+    <Compile Include="System\Io.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Admin\build\config\postcss.config.js" />
@@ -2916,6 +2926,7 @@
     <Content Include="Assets\Admin\vendor\select2\select2.min.css" />
     <Content Include="Assets\Admin\vendor\select2\select2.min.js" />
     <Content Include="Assets\Admin\vendor\tilt\tilt.jquery.min.js" />
+    <Content Include="Assets\Client\css\boostrap-social.css" />
     <Content Include="Assets\Client\css\site.css" />
     <Content Include="Assets\Client\css\style.css" />
     <Content Include="Assets\Client\fontawesome\css\all.css" />
@@ -4563,6 +4574,7 @@
     <Content Include="Assets\Client\Image\Untitled-2.jpg" />
     <Content Include="Assets\Client\Image\Untitled-3.jpg" />
     <Content Include="Assets\Client\Image\Untitled-4.jpg" />
+    <Content Include="Assets\Client\js\Controller\contactController.js" />
     <Content Include="Assets\Client\js\jquery-3.5.1.min.js" />
     <Content Include="Assets\Client\js\jquery.ajaxfileupload.js" />
     <Content Include="Assets\Client\js\site.js" />
@@ -4586,6 +4598,7 @@
     <Content Include="Assets\Client\lib\jquery\dist\jquery.js" />
     <Content Include="Assets\Client\lib\jquery\dist\jquery.min.js" />
     <Content Include="Assets\Client\lib\jquery\LICENSE.txt" />
+    <Content Include="Assets\Client\template\feedback.html" />
     <Content Include="bin\GreenLesson.dll" />
     <Content Include="bin\GreenLesson.pdb" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -5000,12 +5013,30 @@
     <Content Include="Assets\Client\lib\bootstrap\LICENSE" />
     <Content Include="Assets\Client\lib\jquery-validation\LICENSE.md" />
     <Content Include="Assets\Client\lib\jquery\dist\jquery.min.map" />
-    <Content Include="Areas\Admin\Views\Lesson\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Lesson\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Lesson\Details.cshtml" />
     <Content Include="Areas\Admin\Views\New\Details.cshtml" />
     <Content Include="Areas\Admin\Views\New\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\About\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\About\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\About\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\About\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Course\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Course\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Course\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Course\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Feedback\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Feedback\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Exam\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Exam\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Exam\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Exam\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Lesson\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Lesson\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Lesson\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Lesson\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Details.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -5037,14 +5068,15 @@
     <Content Include="Views\Shared\Lesson.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
-    <Content Include="Views\About\About.cshtml" />
+    <Content Include="Views\New\Detail.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\About\" />
     <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Areas\Admin\Views\Contact\" />
     <Folder Include="Views\Lesson\" />
-    <Folder Include="Views\New\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

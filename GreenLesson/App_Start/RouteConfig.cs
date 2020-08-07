@@ -14,6 +14,20 @@ namespace GreenLesson
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+              name: "About",
+              url: "gioi-thieu",
+              defaults: new { controller = "About", action = "Index", id = UrlParameter.Optional },
+              namespaces: new[] { "GreenLesson.Controllers" }
+          );
+
+            routes.MapRoute(
+           name: "Contact",
+           url: "lien-he",
+           defaults: new { controller = "Contact", action = "Index", id = UrlParameter.Optional },
+           namespaces: new[] { "GreenLesson.Controllers" }
+       );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
@@ -34,12 +48,16 @@ namespace GreenLesson
                namespaces: new[] { "GreenLesson.Controllers" }
            );
 
+            
+
             routes.MapRoute(
-              name: "About",
-              url: "{metatitle}-{id}",
-              defaults: new { controller = "About", action = "About", id = UrlParameter.Optional },
+              name: "New",
+              url: "{metatitle}/{id}",
+              defaults: new { controller = "About", action = "Detail", id = UrlParameter.Optional },
               namespaces: new[] { "GreenLesson.Controllers" }
           );
+
+          
         }
     }
 }

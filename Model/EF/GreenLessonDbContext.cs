@@ -12,10 +12,11 @@ namespace Model.EF
         {
         }
 
-        public virtual DbSet<About> Abounts { get; set; }
+        public virtual DbSet<About> Abouts { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
+        public virtual DbSet<Exam> Exams { get; set; }
         public virtual DbSet<Feedback> Feedbacks { get; set; }
         public virtual DbSet<Footer> Footers { get; set; }
         public virtual DbSet<Lesson> Lessons { get; set; }

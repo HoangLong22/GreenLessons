@@ -1,0 +1,52 @@
+﻿@model Model.EF.Contact
+@{
+    ViewBag.Title = "Liên hệ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+    <script src="/Assets/Client/js/Controller/contactController.js"></script>
+    }
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="border-bottom">Thông tin liên hệ</h2>
+            @Html.Raw(Model.Content)
+
+            <h2>Gửi thông tin</h2>
+            <form>
+                <div class="form-group">
+                    <label>Họ và tên</label>
+                    <input type="text" id="txtName" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Số điện thoại</label>
+                    <input type="text" id="txtPhone" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" id="txtEmail" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Địa chỉ</label>
+                    <input type="text" id="txtAddress" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Nội dung</label>
+                    </br>
+                    <textarea id="txtContent" class="form-control"></textarea>
+                </div>
+
+                <button id="btnSend" class="btn btn-success"> Gửi đi</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h2 class="border-bottom">Bản đồ</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.0037837975246!2d105.77184161429851!3d21.072511091660573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134552defbed8e9%3A0x1584f79c805eb017!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBN4buPIC0gxJDhu4thIGNo4bqldA!5e0!3m2!1svi!2s!4v1596724114430!5m2!1svi!2s" width="540" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+    </div>
+</div>
+

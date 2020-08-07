@@ -11,7 +11,7 @@
     {
         public long ID { get; set; }
 
-        [Display(Name="Tên bài giảng")]
+        [Display(Name = "Tên bài giảng")]
         [StringLength(50)]
         public string Name { get; set; }
 
@@ -27,7 +27,8 @@
         public string Image { get; set; }
 
         [Display(Name = "Tên khoá học")]
-        public long? CourseID { get; set; }
+        [StringLength(50)]
+        public string CourseName { get; set; }
 
         [Display(Name = "Tên danh mục")]
         [StringLength(50)]

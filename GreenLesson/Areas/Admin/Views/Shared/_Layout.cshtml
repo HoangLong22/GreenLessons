@@ -1,7 +1,9 @@
 ﻿@{
     Layout = null;
 }
-
+@{
+    var session = (UserLogin)Session[GreenLesson.Common.CommonContants.USER_SESSCION];
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -173,22 +175,25 @@
                             <a href="#" class="nav-link">
                                 <img src="~/Assets/Admin/dist/img/user3-128x128.jpg" class="img-circle elevation-2" alt="User Image" style="height: auto; width: 2.1rem;" />
                                 <p>
-                                    Nguyễn Thị Lĩnh
+                                    @session.UserName
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../../index2.html" class="nav-link">
+                                    <a class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Thông tin cá nhân</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <div class="nav-link active" style="color:red;">
+
+
+                                <li class="nav-item"> 
+                                    <a href="/Admin/User/Logout" class="nav-link">
                                         <i class="fas fa-sign-out-alt"></i>
-                                        @Html.ActionLink("Đăng Xuất", "Index", "Login")
-                                    </div>
+                                        <p>Đăng xuất</p>
+                                    </a>
+                                   
                                 </li>
                             </ul>
                         </li>
@@ -217,24 +222,24 @@
         </aside>
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            
-            @if(TempData["AlertMessage"] != null)
+
+            @if (TempData["AlertMessage"] != null)
             {
-            <div id="AlertBox" class="alert @TempData["AlertType"] hide">
-                @TempData["AlertMessage"]
-            </div>
+                <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+                    @TempData["AlertMessage"]
+                </div>
             }
             @RenderBody()
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-         
+
 
             <img src="~/favicon.ico" width="80px;" /> <strong>Copyright &copy; 2019-2020 <a href="https://adminlte.io">GreenLessons</a>.</strong>
             All rights reserved.
             @*<div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.1.0-pre
-        </div>*@
+                    <b>Version</b> 3.1.0-pre
+                </div>*@
         </footer>
 
         <!-- Control Sidebar -->

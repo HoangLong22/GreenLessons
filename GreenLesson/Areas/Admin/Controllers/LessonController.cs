@@ -26,6 +26,7 @@ namespace GreenLesson.Areas.Admin.Controllers
         {
             SetViewBags();
             SetViewBag();
+            SetViewBag1();
             return View();
         }
 
@@ -33,7 +34,7 @@ namespace GreenLesson.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Create([Bind(Include = "ID,Name,Description,MetaTitle,CategoryName,Image,UserBy,Content,Status")] Lesson lessons)
+        public ActionResult Create([Bind(Include = "ID,Name,Description,MetaTitle,CourseName,CategoryName,Image,UserBy,Content,Status")] Lesson lessons)
         {
             if (ModelState.IsValid)
             {
@@ -43,6 +44,7 @@ namespace GreenLesson.Areas.Admin.Controllers
             }
             SetViewBags();
             SetViewBag();
+            SetViewBag1();
             return View(lessons);
         }
 
@@ -53,6 +55,13 @@ namespace GreenLesson.Areas.Admin.Controllers
 
         }
 
+        public void SetViewBag1(long? selectedId = null)
+        {
+            var dao = new CourseDao();
+            ViewBag.CourseName = new SelectList(dao.ListAll(), "Name", "Name", selectedId);
+
+        }
+
         public void SetViewBags(long? selectedId = null)
         {
             var dao = new CategoryDao();
@@ -60,7 +69,7 @@ namespace GreenLesson.Areas.Admin.Controllers
 
         }
 
-        
+
         [HttpDelete]
         public ActionResult Delete(int id)
         {
@@ -85,6 +94,9 @@ namespace GreenLesson.Areas.Admin.Controllers
         public ActionResult Edit(int id)
         {
             var lesson = new LessonDao().ViewDeatil(id);
+            SetViewBags();
+            SetViewBag();
+            SetViewBag1();
             return View(lesson);
         }
 
@@ -108,6 +120,9 @@ namespace GreenLesson.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Cập nhật không thành công");
                 }
             }
+            SetViewBags();
+            SetViewBag();
+            SetViewBag1();
             return View("Index");
         }
 

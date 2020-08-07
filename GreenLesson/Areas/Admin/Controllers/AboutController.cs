@@ -33,11 +33,11 @@ namespace GreenLesson.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Create([Bind(Include = "ID,Name,Description,MetaTitle,Image,UserBy,Detail,Status")] About abouts)
+        public ActionResult Create([Bind(Include = "ID,Name,Description,MetaTitle,Image,CategoryBy,Detail,Status")] About abouts)
         {
             if (ModelState.IsValid)
             {
-                db.Abounts.Add(abouts);
+                db.Abouts.Add(abouts);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -50,6 +50,26 @@ namespace GreenLesson.Areas.Admin.Controllers
             var dao = new UserDao();
             ViewBag.UserBy = new SelectList(dao.ListAll(), "Name", "Name", selectedId);
 
+        }
+
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            new AboutDao().Delete(id);
+            return RedirectToAction("Index");
+        }
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            About abouts = db.Abouts.Find(id);
+            if (abouts == null)
+            {
+                return HttpNotFound();
+            }
+            return View(abouts);
         }
 
         public ActionResult Edit(int id)
@@ -67,7 +87,7 @@ namespace GreenLesson.Areas.Admin.Controllers
             {
                 var dao = new AboutDao();
 
-                var result = dao.Update(abouts);
+                var result = dao.Update2(abouts);
                 if (result)
                 {
                     //SetAlert("Cập nhật thành công", "success");
@@ -79,28 +99,6 @@ namespace GreenLesson.Areas.Admin.Controllers
                 }
             }
             return View("Index");
-        }
-
-       
-
-        [HttpDelete]
-        public ActionResult Delete(int id)
-        {
-            new AboutDao().Delete(id);
-            return RedirectToAction("Index");
-        }
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            About abouts = db.Abounts.Find(id);
-            if (abouts == null)
-            {
-                return HttpNotFound();
-            }
-            return View(abouts);
         }
     }
 }

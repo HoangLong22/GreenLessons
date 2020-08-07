@@ -48,14 +48,14 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.UserName)
 
-                            @Html.TextBox("UserName", null, new { @class = "form-control" })
+                            @Html.TextBox("UserName", null, new { @class = "input100" })
                             @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger", @placeholder = "Tên đăng nhập" })
                         </div>
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.Password)
 
-                            @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                            @Html.PasswordFor(model => model.Password, new { @class = "input100" })
                             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
 
                         </div>
@@ -63,7 +63,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.ConfirmPassword)
 
-                            @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control" })
+                            @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "input100" })
                             @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
 
 
@@ -72,7 +72,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.Name)
 
-                            @Html.TextBox("Name", null, new { @class = "form-control" })
+                            @Html.TextBox("Name", null, new { @class = "input100" })
                             @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
 
                         </div>
@@ -90,14 +90,14 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.Phone)
 
-                            @Html.TextBox("Phone", null, new { @class = "form-control" })
+                            @Html.TextBox("Phone", null, new { @class = "input100" })
                             @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
 
                         </div>
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.Email)
-                            @Html.TextBox("Email", null, new { @class = "form-control" })
+                            @Html.TextBox("Email", null, new { @class = "input100" })
                             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
 
                         </div>
@@ -105,14 +105,14 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.Address)
 
-                            @Html.TextBox("Address", null, null, new { @class = "form-control" })
+                            @Html.TextBox("Address", null, null, new { @class = "input100" })
                             @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
 
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Đăng ký" class="btn btn-default" />
+                            <div class="container-login100-form-btn">
+                                <input type="submit" value="Đăng ký" class="login100-form-btn" />
                             </div>
                         </div>
                     </div>

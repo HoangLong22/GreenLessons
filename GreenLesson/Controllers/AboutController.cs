@@ -12,13 +12,8 @@ namespace GreenLesson.Controllers
         // GET: About
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About(long id)
-        {
-            var about = new AboutDao().ViewDetail(id);
-            return View(about);
+            var model = new AboutDao().GetActiveAbout();
+            return View(model);
         }
     }
 }

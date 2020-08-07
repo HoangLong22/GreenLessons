@@ -39,57 +39,44 @@
             <div>
 
                 @*<dt>
-                    @Html.DisplayNameFor(model => model.Name)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Name)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.Description)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Description)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.MetaTitle)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.MetaTitle)
-                </dd>
-
-                <dt>
-
-                    @Html.DisplayNameFor(model => model.Image)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Image)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.CourseID)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.CourseID)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.CategoryName)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.CategoryName)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.Content)
-                </dt>*@
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Description)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MetaTitle)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MetaTitle)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Image)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Image)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CourseID)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.CourseID)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CategoryName)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.CategoryName)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Content)
+                    </dt>*@
                 <div class="col-12">
                     <h4></h4>
                     <div class="post">
@@ -99,6 +86,7 @@
                                 <a href="#"> @Html.DisplayFor(model => model.Name)</a>
                             </span>
                             <span class="description"> @Html.DisplayFor(model => model.CategoryName)</span>
+                            <span class="description"> @Html.DisplayFor(model => model.CourseName)</span>
                         </div>
                         <!-- /.user-block -->
                         <p>
@@ -110,72 +98,57 @@
                 </div>
 
                 @*<dd>
-                    @Html.Raw(@Html.Display(model => model.Content))
-                </dd>*@
+                        @Html.Raw(@Html.Display(model => model.Content))
+                    </dd>*@
 
                 @*<dt>
-                    @Html.DisplayNameFor(model => model.MetaDescriptions)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.MetaDescriptions)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.CreatedDate)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.CreatedDate)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.ModifiedBy)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.ModifiedBy)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.CreatedBy)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.CreatedBy)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.MetaKeywords)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.MetaKeywords)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.ModifiedDate)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.ModifiedDate)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.Status)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Status)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.UserBy)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.UserBy)
-                </dd>*@
+                        @Html.DisplayNameFor(model => model.MetaDescriptions)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MetaDescriptions)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CreatedDate)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.CreatedDate)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ModifiedBy)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ModifiedBy)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CreatedBy)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.CreatedBy)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MetaKeywords)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MetaKeywords)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ModifiedDate)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ModifiedDate)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Status)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.UserBy)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.UserBy)
+                    </dd>*@
 
             </div>
         </div>
@@ -188,4 +161,3 @@
 </section>
 <!-- /.content -->
   </div>
-

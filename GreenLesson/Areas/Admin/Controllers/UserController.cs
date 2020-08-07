@@ -99,6 +99,10 @@ namespace GreenLesson.Areas.Admin.Controllers
             });
         }
 
-       
+        public ActionResult Logout()
+        {
+            Session[CommonContants.USER_SESSCION] = null;
+            return Redirect("/");
+        }
     }
 }

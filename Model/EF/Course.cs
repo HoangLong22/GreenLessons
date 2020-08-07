@@ -1,4 +1,4 @@
-namespace Model.EF
+﻿namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -10,7 +10,7 @@ namespace Model.EF
     public partial class Course
     {
         public long ID { get; set; }
-
+        [Display(Name = "Tên khoá học")]
         [StringLength(50)]
         public string Name { get; set; }
 
@@ -29,6 +29,7 @@ namespace Model.EF
         [StringLength(50)]
         public string ModifiedBy { get; set; }
 
+        [Display(Name = "Người tạo")]
         [StringLength(50)]
         public string UserBy { get; set; }
 

@@ -16,11 +16,51 @@ namespace Model.Dao
             db = new GreenLessonDbContext();
         }
 
-        public bool Update(About entity)
+       
+        public IEnumerable<About> ListAllPaging(string searchString, int page, int pageSize)
+        {
+            IQueryable<About> model = db.Abouts;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                model = model.Where(x => x.Name.Contains(searchString) || x.Description.Contains(searchString));
+            }
+            return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+        }
+        //public New GetById(string Name)
+        //{
+        //    return db.Abounts.SingleOrDefault(x => x.Name == Name);
+        //}
+
+        public List<About> ListAll()
+        {
+            return db.Abouts.Where(x => x.Status == true).Take(4).ToList();
+        }
+
+        public About ViewDetail(long id)
+        {
+            return db.Abouts.Find(id);
+        }
+
+        public bool Delete(int id)
         {
             try
             {
-                var abouts = db.Abounts.Find(entity.ID);
+                var abouts = db.Abouts.Find(id);
+                db.Abouts.Remove(abouts);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool Update2(About entity)
+        {
+            try
+            {
+                var abouts = db.Abouts.Find(entity.ID);
                 abouts.Name = entity.Name;
                 if (!string.IsNullOrEmpty(entity.Name))
                 {
@@ -40,43 +80,10 @@ namespace Model.Dao
                 return false;
             }
         }
-        public IEnumerable<About> ListAllPaging(string searchString, int page, int pageSize)
-        {
-            IQueryable<About> model = db.Abounts;
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                model = model.Where(x => x.Name.Contains(searchString) || x.Description.Contains(searchString));
-            }
-            return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
-        }
-        //public New GetById(string Name)
-        //{
-        //    return db.Abounts.SingleOrDefault(x => x.Name == Name);
-        //}
 
-        public List<About> ListAll()
+        public About GetActiveAbout()
         {
-            return db.Abounts.Where(x => x.Status == true).Take(4).ToList();
-        }
-
-        public About ViewDetail(long id)
-        {
-            return db.Abounts.Find(id);
-        }
-
-        public bool Delete(int id)
-        {
-            try
-            {
-                var abouts = db.Abounts.Find(id);
-                db.Abounts.Remove(abouts);
-                db.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
+            return db.Abouts.Single(x => x.Status == true);
         }
     }
 }
