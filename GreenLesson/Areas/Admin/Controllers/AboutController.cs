@@ -11,7 +11,7 @@ using System.Net;
 
 namespace GreenLesson.Areas.Admin.Controllers
 {
-    public class AboutController : Controller
+    public class AboutController : BaseController
     {
         private GreenLessonDbContext db = new GreenLessonDbContext();
         // GET: Admin/About

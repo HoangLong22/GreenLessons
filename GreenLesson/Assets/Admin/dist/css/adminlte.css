@@ -5237,7 +5237,7 @@ a.badge-success:focus, a.badge-success.focus {
 
 .badge-info {
   color: #ffffff;
-  background-color: #17a2b8;
+  background-color: red;
 }
 
 a.badge-info:hover, a.badge-info:focus {

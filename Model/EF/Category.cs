@@ -30,7 +30,7 @@
         public string ModifiedBy { get; set; }
         [Display(Name = "Người tạo")]
         [StringLength(50)]
-        public string CreatedBy { get; set; }
+        public string UserBy { get; set; }
 
         [StringLength(250)]
         public string MetaDescriptions { get; set; }

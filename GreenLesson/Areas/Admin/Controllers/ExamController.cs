@@ -49,7 +49,7 @@ namespace GreenLesson.Areas.Admin.Controllers
         public void SetViewBag(long? selectedId = null)
         {
             var dao = new UserDao();
-            ViewBag.UserBy = new SelectList(dao.ListAll(), "Name", "Name", selectedId);
+            ViewBag.UserBy = new SelectList(dao.ListAll(), "UserName", "Name", selectedId);
 
         }
 
@@ -84,6 +84,7 @@ namespace GreenLesson.Areas.Admin.Controllers
         public ActionResult Edit(int id)
         {
             var exams = new ExamDao().ViewDeatil(id);
+            SetViewBag();
             SetViewBag1();
             return View(exams);
         }
@@ -108,6 +109,7 @@ namespace GreenLesson.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Cập nhật không thành công");
                 }
             }
+            SetViewBag();
             SetViewBag1();
             return View("Index");
         }

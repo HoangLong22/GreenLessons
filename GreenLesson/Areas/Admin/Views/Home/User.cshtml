@@ -1,0 +1,36 @@
+﻿@model List<Model.EF.User>
+@{
+    var session = (UserLogin)Session[GreenLesson.Common.CommonContants.USER_SESSION];
+}
+<nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+        with font-awesome or any other icon font library -->
+        <li class="nav-item has-treeview">
+            @foreach (var item in Model)
+            {
+                if (session.UserID == item.ID)
+                {
+                <a href="#" class="nav-link">
+                    <img src="@item.Image" class="img-circle elevation-2" alt="User Image" style="height: auto; width: 2.1rem;" />
+                     <p>
+                         @item.Name
+                    <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                }
+            }
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="/Admin/User/Logout" class="nav-link">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <p>Đăng xuất</p>
+                    </a>
+
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+</nav>
+

@@ -31,7 +31,7 @@ namespace GreenLesson.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Create([Bind(Include = "ID,Name,MetaTitle,CreateBy,Status")] Category categories)
+        public ActionResult Create([Bind(Include = "ID,Name,MetaTitle,CreatedBy,Status")] Category categories)
         {
             if (ModelState.IsValid)
             {
@@ -46,13 +46,14 @@ namespace GreenLesson.Areas.Admin.Controllers
         public void SetViewBag(long? selectedId = null)
         {
             var dao = new UserDao();
-            ViewBag.UserBy = new SelectList(dao.ListAll(), "ID", "Name", selectedId);
+            ViewBag.UserBy = new SelectList(dao.ListAll(), "UserName", "Name", selectedId);
 
         }
 
         public ActionResult Edit(int id)
         {
             var categories = new CategoryDao().ViewDeatil(id);
+            SetViewBag();
             return View(categories);
         }
 

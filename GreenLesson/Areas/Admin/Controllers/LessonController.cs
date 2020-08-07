@@ -51,7 +51,7 @@ namespace GreenLesson.Areas.Admin.Controllers
         public void SetViewBag(long? selectedId = null)
         {
             var dao = new UserDao();
-            ViewBag.UserBy = new SelectList(dao.ListAll(), "Name", "Name", selectedId);
+            ViewBag.UserBy = new SelectList(dao.ListAll(), "UserName", "Name", selectedId);
 
         }
 

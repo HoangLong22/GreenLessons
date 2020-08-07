@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var session = (UserLogin)Session[GreenLesson.Common.CommonContants.USER_SESSION];
 }
 @section jsFooter{
     <script src="/Assets/Admin/js/controller/userController.js"></script>
@@ -32,12 +33,15 @@
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Danh sách người dùng</h3>
-                        <div class="card-tools">
-                            <ul class="pagination pagination-sm float-right">
-                                <li class="page-item"><a class="page-link" href="/Admin/User/Create">Thêm mới người dùng</a></li>
-                            </ul>
+                        @if (session.GroupID == "ADMIN")
+                        {
+                            <div class="card-tools">
+                                <ul class="pagination pagination-sm float-right">
+                                    <li class="page-item"><a class="page-link" href="/Admin/User/Create">Thêm mới người dùng</a></li>
+                                </ul>
+                            </div>
+                        }
                         </div>
-                    </div>
                     @using (Html.BeginForm("Index", "User", FormMethod.Get))
                     {
 
@@ -76,6 +80,8 @@
                             <tbody>
                                 @foreach (var item in Model)
                                 {
+                                    if (session.UserID == item.ID || session.GroupID=="ADMIN")
+                                    {
                                 <tr id="row_@item.ID" class="project-actions text-center">
                                     <td>@item.Name</td>
                                     <td>@item.UserName</td>
@@ -90,21 +96,22 @@
                                            
                                             Cập nhật
                                         </a>
-                                        <a class="btn btn-info btn-sm" href="/Admin/User/Detail/@item.ID">
+                                        @*<a class="btn btn-info btn-sm" href="/Admin/User/Detail/@item.ID">
                                             
                                             Chi tiết
-                                        </a>
+                                        </a>*@
                                        
-                                            @Ajax.ActionLink("Xoá", "Delete", new{@id = item.ID, } , new AjaxOptions
+                                            @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID, }, new AjaxOptions
                                        {
-                                           
+
                                            Confirm = "Bạn có muốn xoá?",
                                            OnComplete = "$('#row_" + item.ID + "').remove()",
                                            HttpMethod = "Delete"
-                                       }, new { @class= "btn btn-danger btn-sm" })
+                                       }, new { @class = "btn btn-danger btn-sm" })
                                     
                                     </td>
                                 </tr>
+                                    }
                                 }
                         </table>
                         @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString, @class="page-link" }))

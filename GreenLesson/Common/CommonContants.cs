@@ -7,6 +7,7 @@ namespace GreenLesson.Common
 {
     public static class CommonContants
     {
-        public static string USER_SESSCION = "USER_SESSCION";
+        public static string USER_SESSION = "USER_SESSION";
+        public static string SESSION_CREDENTIALS = "SESSION_CREDENTIALS";
     }
 }

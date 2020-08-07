@@ -12,7 +12,7 @@ namespace GreenLesson.Areas.Admin.Controllers
     {
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            var sesscion = (UserLogin)Session[CommonContants.USER_SESSCION];
+            var sesscion = (UserLogin)Session[CommonContants.USER_SESSION];
             if(sesscion == null)
             {
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Login", action = "Index", Area = "Admin" }));

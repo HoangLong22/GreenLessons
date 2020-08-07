@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var session = (UserLogin)Session[GreenLesson.Common.CommonContants.USER_SESSION];
 }
 @section jsFooter{
     <script src="/Assets/Admin/js/controller/userController.js"></script>
@@ -82,25 +83,27 @@
 
                                         <td>@item.Status</td>
                                         <td class="project-actions text-right">
-                                            <a class="btn btn-primary btn-sm" href="/Admin/Course/Edit/@item.ID">
-                                                <i class="fas fa-folder">
-                                                </i>
-                                                Cập nhật
-                                            </a>
+                                            @if (session.UserName == item.UserBy || session.GroupID == "ADMIN")
+                                            {
+                                                <a class="btn btn-primary btn-sm" href="/Admin/Course/Edit/@item.ID">
+                                                    <i class="fas fa-folder">
+                                                    </i>
+                                                    Cập nhật
+                                                </a>
+
+                                                @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
+                                           {
+
+                                               Confirm = "Bạn có muốn xoá?",
+                                               OnComplete = "$('#row_" + item.ID + "').remove()",
+                                               HttpMethod = "Delete"
+                                           }, new { @class = "btn btn-danger btn-sm" })
+                                            }
                                             <a class="btn btn-info btn-sm" href="/Admin/Course/Details/@item.ID">
                                                 <i class="fas fa-pencil-alt">
                                                 </i>
                                                 Chi tiết
                                             </a>
-
-                                            @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
-                                       {
-
-                                           Confirm = "Bạn có muốn xoá?",
-                                           OnComplete = "$('#row_" + item.ID + "').remove()",
-                                           HttpMethod = "Delete"
-                                       }, new { @class = "btn btn-danger btn-sm" })
-
                                         </td>
                                     </tr>
                                 }

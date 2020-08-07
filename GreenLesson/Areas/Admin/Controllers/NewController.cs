@@ -15,6 +15,7 @@ namespace GreenLesson.Areas.Admin.Controllers
     {
         private GreenLessonDbContext db = new GreenLessonDbContext();
         // GET: Admin/New
+        
         public ActionResult Index(string searchString, int page = 1, int pageSize = 5)
         {
             var dao = new NewDao();
@@ -24,6 +25,7 @@ namespace GreenLesson.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [HasCredential(RoleID = "ADD_USER")]
         public ActionResult Create()
         {
             SetViewBag();
@@ -33,6 +35,7 @@ namespace GreenLesson.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
+        [HasCredential(RoleID = "ADD_NEW")]
         public ActionResult Create([Bind(Include = "ID,Name,Description,MetaTitle,Image,UserBy,Content,Status")] New news)
         {
             if (ModelState.IsValid)
@@ -51,7 +54,7 @@ namespace GreenLesson.Areas.Admin.Controllers
             ViewBag.UserBy = new SelectList(dao.ListAll(),"Name", "Name", selectedId);
 
         }
-
+        [HasCredential(RoleID = "EDIT_NEW")]
         public ActionResult Edit(int id)
         {
             var news = new NewDao().ViewDeatil(id);
@@ -61,6 +64,7 @@ namespace GreenLesson.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
+        [HasCredential(RoleID = "EDIT_NEW")]
         public ActionResult Edit(New news)
         {
             if (ModelState.IsValid)
@@ -82,11 +86,13 @@ namespace GreenLesson.Areas.Admin.Controllers
         }
 
         [HttpDelete]
+        [HasCredential(RoleID = "DELETE_NEW")]
         public ActionResult Delete(int id)
         {
             new NewDao().Delete(id);
             return RedirectToAction("Index");
         }
+       
         public ActionResult Details(int? id)
         {
             if (id == null)

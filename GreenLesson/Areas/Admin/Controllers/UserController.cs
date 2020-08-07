@@ -14,6 +14,7 @@ namespace GreenLesson.Areas.Admin.Controllers
     public class UserController : BaseController
     {
         // GET: Admin/User
+        
         public ActionResult Index(string searchString, int page = 1, int pageSize = 5)
         {
             var dao = new UserDao();
@@ -23,12 +24,14 @@ namespace GreenLesson.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [HasCredential(RoleID = "ADD_USER")]
         public ActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
+        [HasCredential(RoleID = "ADD_USER")]
         public ActionResult Create(User user)
         {
             if (ModelState.IsValid)
@@ -49,7 +52,7 @@ namespace GreenLesson.Areas.Admin.Controllers
             }
             return View("Index");
         }
-
+        
         public ActionResult Edit(int id)
         {
             var user = new UserDao().ViewDeatil(id);
@@ -57,6 +60,7 @@ namespace GreenLesson.Areas.Admin.Controllers
         }
 
         [HttpPost]
+       
         public ActionResult Edit(User user)
         {
             if (ModelState.IsValid)
@@ -83,6 +87,7 @@ namespace GreenLesson.Areas.Admin.Controllers
         }
 
         [HttpDelete]
+     
         public ActionResult Delete(int id)
         {
             new UserDao().Delete(id);
@@ -90,6 +95,7 @@ namespace GreenLesson.Areas.Admin.Controllers
         }
 
         [HttpPost]
+      
         public JsonResult ChangeStatus(long id)
         {
             var result = new UserDao().ChangeStatus(id);
@@ -101,7 +107,7 @@ namespace GreenLesson.Areas.Admin.Controllers
 
         public ActionResult Logout()
         {
-            Session[CommonContants.USER_SESSCION] = null;
+            Session[CommonContants.USER_SESSION] = null;
             return Redirect("/");
         }
     }

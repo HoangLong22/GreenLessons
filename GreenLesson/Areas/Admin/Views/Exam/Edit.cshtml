@@ -93,7 +93,7 @@
 
                             <div class="form-group">
                                 @Html.LabelFor(model => model.UserBy)
-                                @Html.TextBox("UserBy", null, new { @class = "form-control" })
+                                @Html.DropDownList("UserBy", null, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.UserBy, "", new { @class = "text-danger" })
                             </div>
 

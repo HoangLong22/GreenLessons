@@ -108,9 +108,9 @@
 
 
                             <div class="form-group">
-                                @Html.LabelFor(model => model.CreatedBy)
-                                @Html.TextBox("CreatedBy", null, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.UserBy)
+                                @Html.DropDownList("UserBy", null, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.UserBy, "", new { @class = "text-danger" })
                             </div>
 
 

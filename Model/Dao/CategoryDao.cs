@@ -51,7 +51,7 @@ namespace Model.Dao
                 }
 
                 categories.MetaTitle = entity.MetaTitle;
-                categories.CreatedBy = entity.CreatedBy;
+                categories.UserBy = entity.UserBy;
                 categories.Status = entity.Status;
                 categories.ModifiedDate = DateTime.Now;
                 db.SaveChanges();

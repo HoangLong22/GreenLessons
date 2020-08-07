@@ -18,6 +18,7 @@ namespace GreenLesson.Areas.Admin.Controllers
             return View();
         }
 
+
         public ActionResult Login(LoginModel model)
         {
             if (ModelState.IsValid)
@@ -30,7 +31,10 @@ namespace GreenLesson.Areas.Admin.Controllers
                     var userSession = new UserLogin();
                     userSession.UserName = user.UserName;
                     userSession.UserID = user.ID;
-                    Session.Add(CommonContants.USER_SESSCION, userSession);
+                    userSession.GroupID = user.GroupID;
+                    var listCredentails = dao.GetListCredential(model.UserName);
+                    Session.Add(CommonContants.SESSION_CREDENTIALS, listCredentails);
+                    Session.Add(CommonContants.USER_SESSION, userSession);
                     return RedirectToAction("Index", "Home");
                 }
                 else if(result == 0)

@@ -83,14 +83,14 @@ namespace GreenLesson.Controllers
                     var userSession = new UserLogin();
                     userSession.UserName = user.UserName;
                     userSession.UserID = user.ID;
-                    Session.Add(CommonContants.USER_SESSCION, userSession);
+                    Session.Add(CommonContants.USER_SESSION, userSession);
                 }
             }
             return RedirectToAction("Index", "Home");
         }
         public ActionResult Logout()
         {
-            Session[CommonContants.USER_SESSCION] = null;
+            Session[CommonContants.USER_SESSION] = null;
             return Redirect("/");
         }
         [HttpPost]
@@ -106,7 +106,7 @@ namespace GreenLesson.Controllers
                     var userSession = new UserLogin();
                     userSession.UserName = user.UserName;
                     userSession.UserID = user.ID;
-                    Session.Add(CommonContants.USER_SESSCION, userSession);
+                    Session.Add(CommonContants.USER_SESSION, userSession);
                     return RedirectToAction("Index", "Home");
                 }
                 else if (result == 0)
