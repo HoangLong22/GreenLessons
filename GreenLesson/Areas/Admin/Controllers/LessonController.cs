@@ -25,7 +25,7 @@ namespace GreenLesson.Areas.Admin.Controllers
         public ActionResult Create()
         {
             SetViewBags();
-            SetViewBag();
+            //SetViewBag();
             SetViewBag1();
             return View();
         }
@@ -43,17 +43,17 @@ namespace GreenLesson.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
             SetViewBags();
-            SetViewBag();
+
             SetViewBag1();
             return View(lessons);
         }
 
-        public void SetViewBag(long? selectedId = null)
-        {
-            var dao = new UserDao();
-            ViewBag.UserBy = new SelectList(dao.ListAll(), "UserName", "Name", selectedId);
+        //public void SetViewBag(long? selectedId = null)
+        //{
+        //    var dao = new UserDao();
+        //    ViewBag.UserBy = new SelectList(dao.ListAll(), "UserName", "Name", selectedId);
 
-        }
+        //}
 
         public void SetViewBag1(long? selectedId = null)
         {
@@ -95,7 +95,7 @@ namespace GreenLesson.Areas.Admin.Controllers
         {
             var lesson = new LessonDao().ViewDeatil(id);
             SetViewBags();
-            SetViewBag();
+            //SetViewBag();
             SetViewBag1();
             return View(lesson);
         }
@@ -121,7 +121,7 @@ namespace GreenLesson.Areas.Admin.Controllers
                 }
             }
             SetViewBags();
-            SetViewBag();
+            //SetViewBag();
             SetViewBag1();
             return View("Index");
         }

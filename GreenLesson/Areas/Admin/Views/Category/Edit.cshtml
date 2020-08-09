@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var session = (UserLogin)Session[GreenLesson.Common.CommonContants.USER_SESSION];
 }
 @section jsFooter {
     <script>
@@ -65,13 +66,13 @@
 
                             <div class="form-group">
                                 @Html.LabelFor(model => model.UserBy)
-                                @Html.DropDownList("UserBy", null, new { @class = "form-control" })
+                                @Html.TextBoxFor(model => model.UserBy, new { @class = "form-control", @readonly = "readonly" })
                                 @Html.ValidationMessageFor(model => model.UserBy, "", new { @class = "text-danger" })
                             </div>
 
 
 
-                         
+
                         </div>
 
                       

@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var session = (UserLogin)Session[GreenLesson.Common.CommonContants.USER_SESSION];
 }
 
 @section jsFooter {
@@ -78,7 +79,7 @@
 
                             <div class="form-group">
                                 @Html.LabelFor(model => model.CreatedBy)
-                                @Html.TextBox("CreatedBy", null, new { @class = "form-control" })
+                                @Html.TextBoxFor(model => model.CreatedBy, new { @class = "form-control", @readonly = "readonly" })
                                 @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
                             </div>
 
