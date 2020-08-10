@@ -5039,6 +5039,7 @@
     <Content Include="Areas\Admin\Views\Category\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\401.cshtml" />
     <Content Include="Areas\Admin\Views\Home\User.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
