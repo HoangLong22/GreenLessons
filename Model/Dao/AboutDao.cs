@@ -85,5 +85,12 @@ namespace Model.Dao
         {
             return db.Abouts.Single(x => x.Status == true);
         }
+        public bool ChangeStatusAbout(long id)
+        {
+            var about = db.Abouts.Find(id);
+            about.Status = !about.Status;
+            db.SaveChanges();
+            return about.Status;
+        }
     }
 }

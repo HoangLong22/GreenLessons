@@ -43,6 +43,10 @@
         [Display(Name = "Địa chỉ")]
         public string Address { get; set; }
 
+        public int? ProvinceID { get; set; }
+
+        public int? DistrictID { get; set; }
+
         public DateTime? CreatedDate { get; set; }
 
         [StringLength(50)]

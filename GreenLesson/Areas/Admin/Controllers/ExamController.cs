@@ -113,5 +113,13 @@ namespace GreenLesson.Areas.Admin.Controllers
             SetViewBag1();
             return View("Index");
         }
+        public JsonResult ChangeStatusExam(long id)
+        {
+            var result = new ExamDao().ChangeStatusExam(id);
+            return Json(new
+            {
+                status = result
+            });
+        }
     }
 }

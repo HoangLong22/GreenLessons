@@ -8,7 +8,7 @@
             var btn = $(this);
             var id = btn.data('id');
             $.ajax({
-                url: "/Admin/User/ChangeStatus",
+                url: "/Admin/Lesson/ChangeStatusLesson",
                 data: { id: id },
                 dataType: "json",
                 type: "POST",
@@ -25,4 +25,4 @@
         });
     }
 }
-user.init();
+lesson.init();

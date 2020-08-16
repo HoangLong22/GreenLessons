@@ -21,6 +21,11 @@ namespace Model.Dao
             return db.Categories.Where(x => x.Status == true).Take(4).ToList();
         }
 
+        public List<Category> ListAll1()
+        {
+            return db.Categories.Where(x => x.Status == true).ToList();
+        }
+
         public IEnumerable<Category> ListAllPaging(string searchString, int page, int pageSize)
         {
             IQueryable<Category> model = db.Categories;
@@ -76,6 +81,13 @@ namespace Model.Dao
             {
                 return false;
             }
+        }
+        public bool ChangeStatusCategory(long id)
+        {
+            var category = db.Categories.Find(id);
+            category.Status = !category.Status;
+            db.SaveChanges();
+            return category.Status;
         }
     }
 }

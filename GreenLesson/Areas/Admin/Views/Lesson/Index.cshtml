@@ -6,7 +6,7 @@
     var session = (UserLogin)Session[GreenLesson.Common.CommonContants.USER_SESSION];
 }
 @section jsFooter{
-    <script src="/Assets/Admin/js/controller/userController.js"></script>
+    <script src="/Assets/Admin/js/controller/LessonController.js"></script>
 }
 <section class="content-header">
     <div class="container-fluid">
@@ -62,7 +62,7 @@
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                                 <tr class="project-actions text-center">
-                                    <th>Tên tin tức</th>
+                                    <th>Tên bài giảng</th>
                                     <th>Hình ảnh</th>
                                     <th>Danh mục</th>
                                     <th>Người tạo</th>
@@ -86,7 +86,7 @@
                                             <td>@item.UserBy</td>
                                             @*<td>@Html.Raw(@item.Content)</td>*@
 
-                                            <td><a href="#" class="btn-active">@item.Status</a></td>
+                                        <td><a href="#" class="btn-active" data-id="@item.ID">@(item.Status ? "Kích hoạt" : "Khoá")</a></td>
                                             <td>
                                                 <a class="btn btn-primary btn-sm" href="/Admin/Lesson/Edit/@item.ID">
                                                     <i class="fas fa-folder"></i>

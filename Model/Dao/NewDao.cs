@@ -84,5 +84,12 @@ namespace Model.Dao
                 return false;
             }
         }
+        public bool ChangeStatusNew(long id)
+        {
+            var news = db.News.Find(id);
+            news.Status = !news.Status;
+            db.SaveChanges();
+            return news.Status;
+        }
     }
 }

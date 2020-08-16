@@ -100,5 +100,13 @@ namespace GreenLesson.Areas.Admin.Controllers
             }
             return View(courses);
         }
+        public JsonResult ChangeStatusCourse(long id)
+        {
+            var result = new CourseDao().ChangeStatusCourse(id);
+            return Json(new
+            {
+                status = result
+            });
+        }
     }
 }

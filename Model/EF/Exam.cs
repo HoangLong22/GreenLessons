@@ -60,7 +60,7 @@ namespace Model.EF
         public DateTime? ModifiedDate { get; set; }
 
         [Display(Name = "Trạng thái")]
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
 
         [Display(Name = "Người khởi tạo")]
         [StringLength(50)]

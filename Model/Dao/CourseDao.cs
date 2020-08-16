@@ -75,5 +75,12 @@ namespace Model.Dao
                 return false;
             }
         }
+        public bool ChangeStatusCourse(long id)
+        {
+            var course = db.Courses.Find(id);
+            course.Status = !course.Status;
+            db.SaveChanges();
+            return course.Status;
+        }
     }
 }

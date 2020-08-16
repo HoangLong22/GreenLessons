@@ -5,7 +5,6 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     var session = (UserLogin)Session[GreenLesson.Common.CommonContants.USER_SESSION];
 }
-
 @section jsFooter {
     <script>
         $('#btnSelectImage').on('click', function (e) {
@@ -18,6 +17,7 @@
         })
         var editor = CKEDITOR.replace('txtcontent', {
             customConfig: '/Assets/Admin/js/plugins/ckeditor/config.js',
+            extraPlugins: 'video,html5audio,soundPlayer,html5video',
         });
     </script>
 

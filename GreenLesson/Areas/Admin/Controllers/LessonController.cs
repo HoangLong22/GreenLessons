@@ -61,11 +61,18 @@ namespace GreenLesson.Areas.Admin.Controllers
             ViewBag.CourseName = new SelectList(dao.ListAll(), "Name", "Name", selectedId);
 
         }
-
+        public JsonResult ChangeStatusLesson(long id)
+        {
+            var result = new LessonDao().ChangeStatusLesson(id);
+            return Json(new
+            {
+                status = result
+            });
+        }
         public void SetViewBags(long? selectedId = null)
         {
             var dao = new CategoryDao();
-            ViewBag.CategoryName = new SelectList(dao.ListAll(), "Name", "Name", selectedId);
+            ViewBag.CategoryName = new SelectList(dao.ListAll1(), "Name", "Name", selectedId);
 
         }
 

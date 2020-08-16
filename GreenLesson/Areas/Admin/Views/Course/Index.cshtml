@@ -6,7 +6,7 @@
     var session = (UserLogin)Session[GreenLesson.Common.CommonContants.USER_SESSION];
 }
 @section jsFooter{
-    <script src="/Assets/Admin/js/controller/userController.js"></script>
+    <script src="~/Assets/Admin/js/controller/CourseController.js"></script>
 }
 <section class="content-header">
     <div class="container-fluid">
@@ -66,7 +66,6 @@
                                 <tr class="project-actions text-center">
                                     <th>Tên danh mục</th>
                                     <th>Meta Title</th>
-
                                     <th>Người tạo</th>
                                     <th>Trạng thái</th>
                                     <th>Tác vụ</th>
@@ -77,34 +76,33 @@
                                 {
                                     if (session.UserName == item.UserBy || session.GroupID == "ADMIN")
                                     {
-                                    <tr id="row_@item.ID" class="project-actions text-center">
-                                        <td>@item.Name</td>
-                                        <td>@item.MetaTitle</td>
-                                        <td>@item.UserBy</td>
-                                        @*<td>@Html.Raw(@item.Content)</td>*@
+                                <tr id="row_@item.ID" class="project-actions text-center">
+                                    <td>@item.Name</td>
+                                    <td>@item.MetaTitle</td>
+                                    <td>@item.UserBy</td>
+                                    @*<td>@Html.Raw(@item.Content)</td>*@
+                                    <td><a href="#" class="btn-active" data-id="@item.ID">@(item.Status ? "Kích hoạt" : "Khoá")</a></td>
+                                    <td class="project-actions text-right">
+                                        <a class="btn btn-primary btn-sm" href="/Admin/Course/Edit/@item.ID">
+                                            <i class="fas fa-folder">
+                                            </i>
+                                            Cập nhật
+                                        </a>
+                                        <a class="btn btn-info btn-sm" href="/Admin/Course/Details/@item.ID">
+                                            <i class="fas fa-pencil-alt">
+                                            </i>
+                                            Chi tiết
+                                        </a>
+                                        @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
+                                   {
 
-                                        <td>@item.Status</td>
-                                        <td class="project-actions text-right">
-                                            <a class="btn btn-primary btn-sm" href="/Admin/Course/Edit/@item.ID">
-                                                <i class="fas fa-folder">
-                                                </i>
-                                                Cập nhật
-                                            </a>
-                                            <a class="btn btn-info btn-sm" href="/Admin/Course/Details/@item.ID">
-                                                <i class="fas fa-pencil-alt">
-                                                </i>
-                                                Chi tiết
-                                            </a>
-                                            @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
-                                       {
+                                       Confirm = "Bạn có muốn xoá?",
+                                       OnComplete = "$('#row_" + item.ID + "').remove()",
+                                       HttpMethod = "Delete"
+                                   }, new { @class = "btn btn-danger btn-sm" })
 
-                                           Confirm = "Bạn có muốn xoá?",
-                                           OnComplete = "$('#row_" + item.ID + "').remove()",
-                                           HttpMethod = "Delete"
-                                       }, new { @class = "btn btn-danger btn-sm" })
-
-                                        </td>
-                                    </tr>
+                                    </td>
+                                </tr>
                                     }
                                 }
                         </table>

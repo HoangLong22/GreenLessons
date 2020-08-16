@@ -101,5 +101,13 @@ namespace GreenLesson.Areas.Admin.Controllers
             }
             return View(categories);
         }
+        public JsonResult ChangeStatusCategory(long id)
+        {
+            var result = new CategoryDao().ChangeStatusCategory(id);
+            return Json(new
+            {
+                status = result
+            });
+        }
     }
 }

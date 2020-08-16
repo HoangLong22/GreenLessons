@@ -58,7 +58,13 @@ namespace Model.Dao
                 return false;
             }
         }
-
+        public bool ChangeStatusLesson(long id)
+        {
+            var lesson = db.Lessons.Find(id);
+            lesson.Status = !lesson.Status;
+            db.SaveChanges();
+            return lesson.Status;
+        }
         public bool Update1(Lesson entity)
         {
             try

@@ -22,7 +22,7 @@
         [StringLength(50)]
         public string SeoTitle { get; set; }
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
 
         public DateTime? CreatedDate { get; set; }
 

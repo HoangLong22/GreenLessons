@@ -48,7 +48,7 @@
         public DateTime? ModifiedDate { get; set; }
 
         [Display(Name = "Trạng thái")]
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
 
         [StringLength(50)]
         [Display(Name = "Người tạo")]

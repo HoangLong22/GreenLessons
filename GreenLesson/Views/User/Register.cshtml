@@ -3,6 +3,9 @@
     ViewBag.Title = "Đăng ký";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section jsFooter{
+    <script src="/Assets/Client/js/Controller/userController.js"></script>
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,88 +37,101 @@
                 <div class="login100-pic js-tilt" data-tilt>
                     <img src="~/Assets/Admin/images/img-01.png" alt="IMG">
                 </div>
-                @using (Html.BeginForm("Register","User", FormMethod.Post))
+                @using (Html.BeginForm("Register", "User", FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
 
-                    <div class="form-horizontal">
-                        <h4>Đăng ký thành viên</h4>
-                        <hr />
-                        <div class="form-group">@Html.ValidationSummary(true, "", new { @class = "text-danger" })</div>
-                           @if(ViewBag.Success != null){
-                               <div class="alert alert-success">@ViewBag.Success</div> 
-                        }
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.UserName)
+            <div class="form-horizontal">
+                <h4>Đăng ký thành viên</h4>
+                <hr />
+                <div class="form-group">@Html.ValidationSummary(true, "", new { @class = "text-danger" })</div>
+                @if (ViewBag.Success != null)
+                {
+                    <div class="alert alert-success">@ViewBag.Success</div>
+                }
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UserName)
 
-                            @Html.TextBox("UserName", null, new { @class = "input100" })
-                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger", @placeholder = "Tên đăng nhập" })
-                        </div>
+                    @Html.TextBox("UserName", null, new { @class = "input100" })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger", @placeholder = "Tên đăng nhập" })
+                </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Password)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password)
 
-                            @Html.PasswordFor(model => model.Password, new { @class = "input100" })
-                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    @Html.PasswordFor(model => model.Password, new { @class = "input100" })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
 
-                        </div>
+                </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.ConfirmPassword)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ConfirmPassword)
 
-                            @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "input100" })
-                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                    @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "input100" })
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
 
 
-                        </div>
+                </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Name)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name)
 
-                            @Html.TextBox("Name", null, new { @class = "input100" })
-                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    @Html.TextBox("Name", null, new { @class = "input100" })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
 
-                        </div>
+                </div>
 
-                        @*<div class="form-group">
-                            @Html.LabelFor(model => model.Image)
-                            <div class="col-md-6">
-                                @Html.TextBox("Image", null, new { @class = "form-control", id = "txtImage" })
-                                <a id="btnSelectImage" href="#">Chọn hình ảnh</a>
-                                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
-                            </div>
+                @*<div class="form-group">
+            @Html.LabelFor(model => model.Image)
+            <div class="col-md-6">
+                @Html.TextBox("Image", null, new { @class = "form-control", id = "txtImage" })
+                <a id="btnSelectImage" href="#">Chọn hình ảnh</a>
+                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+            </div>
 
-                        </div>*@
+        </div>*@
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Phone)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Phone)
 
-                            @Html.TextBox("Phone", null, new { @class = "input100" })
-                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                    @Html.TextBox("Phone", null, new { @class = "input100" })
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
 
-                        </div>
+                </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Email)
-                            @Html.TextBox("Email", null, new { @class = "input100" })
-                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email)
+                    @Html.TextBox("Email", null, new { @class = "input100" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
 
-                        </div>
+                </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Address)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ProvinceID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DropDownList("ProvinceID", new SelectList(new string[] { }), new { @class = "input100", @id = "ddlProvince" })
+                    @Html.ValidationMessageFor(model => model.ProvinceID, "", new { @class = "text-danger" })
+                </div>
 
-                            @Html.TextBox("Address", null, null, new { @class = "input100" })
-                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DistrictID, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.DropDownList("DistrictID", new SelectList(new string[] { }), new { @class = "input100", @id = "ddlDistrict" })
+                        @Html.ValidationMessageFor(model => model.DistrictID, "", new { @class = "text-danger" })
+                </div>
 
-                        </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Address)
 
-                        <div class="form-group">
-                            <div class="container-login100-form-btn">
-                                <input type="submit" value="Đăng ký" class="login100-form-btn" />
-                            </div>
-                        </div>
+                    @Html.TextBox("Address", null, null, new { @class = "input100" })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="form-group">
+                    <div class="container-login100-form-btn">
+                        <input type="submit" value="Đăng ký" class="login100-form-btn" />
                     </div>
+                </div>
+            </div>
                 }
             </div>
         </div>
@@ -134,9 +150,9 @@
     <!--===============================================================================================-->
     <script src="~/Assets/Admin/vendor/tilt/tilt.jquery.min.js"></script>
     <script>
-		$('.js-tilt').tilt({
-			scale: 1.1
-		})
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
     </script>
     <!--===============================================================================================-->
     <script src="~/Assets/Admin/js/main.js"></script>

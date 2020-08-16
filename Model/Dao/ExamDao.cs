@@ -86,5 +86,12 @@ namespace Model.Dao
                 return false;
             }
         }
+        public bool ChangeStatusExam(long id)
+        {
+            var exam = db.Exams.Find(id);
+            exam.Status = !exam.Status;
+            db.SaveChanges();
+            return exam.Status;
+        }
     }
 }

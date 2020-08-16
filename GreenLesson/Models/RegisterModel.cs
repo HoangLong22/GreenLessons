@@ -40,6 +40,11 @@ namespace GreenLesson.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
+        [Display(Name = "Tỉnh/TP")]
+        public string ProvinceID { get; set; }
+
+        [Display(Name = "Quận/Huyện")]
+        public string DistrictID { get; set; }
 
         [Display(Name = "Địa chỉ")]
         public string Address { get; set; }
