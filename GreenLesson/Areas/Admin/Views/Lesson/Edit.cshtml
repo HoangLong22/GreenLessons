@@ -17,6 +17,7 @@
         })
         var editor = CKEDITOR.replace('txtcontent', {
             customConfig: '/Assets/Admin/js/plugins/ckeditor/config.js',
+            extraPlugins: 'video,html5audio,soundPlayer,html5video',
         });
     </script>
 }
@@ -45,6 +46,8 @@
 
             @using (Html.BeginForm("Edit", "Lesson", FormMethod.Post))
             {
+                if (session.GroupID == "ADMIN" || session.UserName == Model.UserBy)
+                {
                 @Html.AntiForgeryToken()
                 <div class="card-body">
                     <div class="row">
@@ -128,6 +131,7 @@
                         </div>
                     </div>
                 </div>
+                }
             }
         </div>
         <!-- /.row -->

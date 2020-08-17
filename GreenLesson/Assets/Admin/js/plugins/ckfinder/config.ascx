@@ -15,7 +15,7 @@
 		//		return ( Session[ "IsAuthorized" ] != null && (bool)Session[ "IsAuthorized" ] == true );
 		//
 		// ... where Session[ "IsAuthorized" ] is set to "true" as soon as the
-		// user logs on your system.
+		// user logs on your sys	.
 
 		return Session["USER_SESSION"] != null;
 	}
@@ -71,7 +71,7 @@
 		// Set the maximum size of uploaded images. If an uploaded image is
 		// larger, it gets scaled down proportionally. Set to 0 to disable this
 		// feature.
-		Images.MaxWidth = 1600;
+		Images.MaxWidth = 900;
 		Images.MaxHeight = 1200;
 		Images.Quality = 80;
 

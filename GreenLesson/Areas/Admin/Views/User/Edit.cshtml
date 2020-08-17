@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var session = (UserLogin)Session[GreenLesson.Common.CommonContants.USER_SESSION];
 }
 @section jsFooter {
     <script>
@@ -44,87 +45,104 @@
 
             @using (Html.BeginForm("Edit", "User", FormMethod.Post))
             {
-                @Html.AntiForgeryToken()
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.UserName)
-
-                                @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
-
-                            </div>
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.Password)
-
-                                @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-
-                            </div>
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.Name)
-
-                                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-
-                            </div>
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.Image)
-                                <div class="col-md-5">
-                                    @Html.TextBox("Image", null, new { @class = "form-control", id = "txtImage" })
-                                    <a id="btnSelectImage" href="#">Chọn hình ảnh</a>
-                                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.Status)
-                                <br />
-                                @Html.CheckBox("Status", new { htmlAttributes = new { @class = "form-control" } })
-                                Kích hoạt
-                                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
-
-                            </div>
-
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.Phone)
-
-                                @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
-
-                            </div>
-
-                            <div class="form-group">
+                if (session.GroupID == "ADMIN" || session.UserName == Model.UserName)
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="card-body">             
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.Email)
-                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    @Html.LabelFor(model => model.Image)
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-5" style="text-align: center;">
+                                                <img class="img-circle img-bordered-sm" src="@Html.DisplayFor(model => model.Image)" alt="user image" style="width:150px; height: 160px;">
+                                                <a id="btnSelectImage" href="#">Change Avatar</a>
+                                            </div>
+                                            <div class="col-md-" style="padding-top: 75px;" >
+                                                <div class="form-group">
+
+                                                    @Html.TextBox("Image", null, new { @class = "form-control", id = "txtImage" })
+                                                    
+                                                    <div class="col-md-5">
+                                                        @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.UserName)
+
+                                    @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Status)
+                                    <br />
+                                    @Html.CheckBox("Status", new { htmlAttributes = new { @class = "form-control" } })
+                                    Kích hoạt
+                                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Phone)
+
+                                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Email)
+                                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Address)
+
+                                    @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Password)
+
+                                    @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Name)
+
+                                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                @Html.LabelFor(model => model.Address)
-
-                                @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
-
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Cập nhật" class="btn btn-default" />
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Cập nhật" class="btn btn-default" />
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
             }
         </div>
         <!-- /.row -->

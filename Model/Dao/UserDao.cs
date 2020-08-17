@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using PagedList;
 using System.ComponentModel.Design;
 using Common;
+using System.Diagnostics.PerformanceData;
 
 namespace Model.Dao
 {
@@ -44,6 +45,7 @@ namespace Model.Dao
         {
             return db.Users.Where(x => x.Status == true).ToList();
         }
+       
         public bool Update(User entity)
         {
             try
@@ -182,5 +184,6 @@ namespace Model.Dao
         {
             return db.Users.Count(x => x.Email == email) > 0;
         }
+
     }
 }

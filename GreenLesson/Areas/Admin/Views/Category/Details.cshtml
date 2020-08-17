@@ -43,11 +43,11 @@
                     <h4></h4>
                     <div class="post">
                         <div class="user-block">
-                            <img class="img-circle img-bordered-sm" src="@Html.DisplayFor(model => model.Image)" alt="user image">
+                            @*<img class="img-circle img-bordered-sm" src="@Html.DisplayFor(model => model.Image)" alt="user image">*@
                             <span class="username">
                                 <a href="#"> @Html.DisplayFor(model => model.Name)</a>
                             </span>
-                            <span class="description"> @Html.DisplayFor(model => model.CreatedBy)</span>
+                            <span class="description"> @Html.DisplayFor(model => model.UserBy)</span>
                         </div>
                         <!-- /.user-block -->
                         <p>

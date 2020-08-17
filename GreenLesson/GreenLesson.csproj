@@ -5407,8 +5407,13 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Data\files\1.jpg" />
+    <Content Include="Data\files\ideo.mp4" />
+    <Content Include="Data\files\Khac-Biet-To-Lon-Trinh-Thang-Binh-Liz-Kim-Cuong%281%29.mp3" />
     <Content Include="Data\files\Khac-Biet-To-Lon-Trinh-Thang-Binh-Liz-Kim-Cuong.mp3" />
     <Content Include="Data\files\LearningEnglishLuyenNgheTiengAnh-VOA-3100823.mp3" />
+    <Content Include="Data\files\Track 01.mp3" />
+    <Content Include="Data\files\Track 02.mp3" />
+    <Content Include="Data\files\Track 03.mp3" />
     <Content Include="Data\images\1.jpg" />
     <Content Include="Data\images\80202193_547659906089326_5802008785442570240_n.jpg" />
     <Content Include="Data\images\istockphoto-1141426321-612x612.jpg" />
@@ -6234,13 +6239,13 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Shared\401.cshtml" />
+    <Content Include="Views\Lesson\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
     <Folder Include="Areas\Admin\Views\Contact\" />
     <Folder Include="Data\flash\" />
-    <Folder Include="Views\Lesson\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

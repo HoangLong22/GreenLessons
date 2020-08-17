@@ -17,7 +17,15 @@
 
                 </p>
             </a>
-            
+
+        </li>
+        <li class="nav-item has-treeview">
+            <a href="/Admin/Home" class="nav-link">
+                <i class="fas fa-house-user"></i>
+                <p>
+                    Trang chủ
+                </p>
+            </a>
         </li>
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -38,31 +46,31 @@
         </li>
         @if (session.GroupID == "ADMIN")
         {
-        <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-                <i class="fas fa-newspaper"></i>
-                <p>
-                    Quản lý tin tức
-                    <i class="fas fa-angle-left right"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="/Admin/New/Index" class="nav-link">
-                        <i class="fas fa-file-alt  nav-icon"></i>
-                        <p>Danh sách tin tức tin tức</p>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="nav-item has-treeview">
-            <a href="/Admin/About/Index" class="nav-link">
-                <i class="fas fa-building"></i>
-                <p>
-                    Quản lý bài giới thiệu
-                </p>
-            </a>
-        </li>
+            <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-newspaper"></i>
+                    <p>
+                        Quản lý tin tức
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="/Admin/New/Index" class="nav-link">
+                            <i class="fas fa-file-alt  nav-icon"></i>
+                            <p>Danh sách tin tức tin tức</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item has-treeview">
+                <a href="/Admin/About/Index" class="nav-link">
+                    <i class="fas fa-building"></i>
+                    <p>
+                        Quản lý bài giới thiệu
+                    </p>
+                </a>
+            </li>
         }
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">

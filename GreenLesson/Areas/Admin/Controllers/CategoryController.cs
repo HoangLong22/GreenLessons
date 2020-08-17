@@ -1,4 +1,5 @@
-﻿using Model.Dao;
+﻿using GreenLesson.Common;
+using Model.Dao;
 using Model.EF;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,8 @@ namespace GreenLesson.Areas.Admin.Controllers
     {
         private GreenLessonDbContext db = new GreenLessonDbContext();
         // GET: Admin/Course
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 5)
+       
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 6)
         {
             var dao = new CategoryDao();
             var model = dao.ListAllPaging(searchString, page, pageSize);

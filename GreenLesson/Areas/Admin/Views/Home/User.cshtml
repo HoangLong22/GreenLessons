@@ -9,7 +9,7 @@
         <li class="nav-item has-treeview">
             @foreach (var item in Model)
             {
-                if (session.UserID == item.ID)
+                if (session.UserName == item.UserName)
                 {
                 <a href="#" class="nav-link">
                     <img src="@item.Image" class="img-circle elevation-2" alt="User Image" style="height: auto; width: 2.1rem;" />

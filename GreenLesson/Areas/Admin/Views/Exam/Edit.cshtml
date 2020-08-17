@@ -46,6 +46,8 @@
 
             @using (Html.BeginForm("Edit", "Exam", FormMethod.Post))
             {
+                if (session.GroupID == "ADMIN" || session.UserName == Model.UserBy)
+                {
                 @Html.AntiForgeryToken()
                 <div class="card-body">
                     <div class="row">
@@ -123,6 +125,7 @@
                         </div>
                     </div>
                 </div>
+                }
             }
         </div>
         <!-- /.row -->

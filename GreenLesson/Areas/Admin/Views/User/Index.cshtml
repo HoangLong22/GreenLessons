@@ -80,7 +80,7 @@
                             <tbody>
                                 @foreach (var item in Model)
                                 {
-                                    if (session.UserID == item.ID || session.GroupID=="ADMIN")
+                                    if (session.UserName == item.UserName || session.GroupID=="ADMIN")
                                     {
                                 <tr id="row_@item.ID" class="project-actions text-center">
                                     <td>@item.Name</td>

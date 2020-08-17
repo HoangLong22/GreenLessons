@@ -21,5 +21,11 @@ namespace GreenLesson.Controllers
             var model = new LessonDao().ListAll();
             return PartialView(model);
         }
+
+        public ActionResult Detail(long id)
+        {
+            var news = new LessonDao().ViewDeatil(id);
+            return PartialView(news);
+        }
     }
 }

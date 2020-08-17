@@ -2,13 +2,14 @@
 using PagedList;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Model.Dao
 {
-    public class CategoryDao
+public class CategoryDao
     {
         GreenLessonDbContext db = null;
         public CategoryDao()
