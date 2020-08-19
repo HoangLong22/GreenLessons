@@ -74,42 +74,42 @@
                             <tbody>
                                 @foreach (var item in Model)
                                 {
-                                   if (session.UserName == item.UserBy || session.GroupID == "ADMIN")
+                                    if (session.UserName == item.UserBy || session.GroupID == "ADMIN")
                                     {
-                                <tr id="row_@item.ID" class="project-actions text-center">
-                                    <td>@item.Name</td>
+                                        <tr id="row_@item.ID" class="project-actions text-center">
+                                            <td>@item.Name</td>
 
-                                    <td>
+                                            <td>
 
-                                        <img src="@item.Image" style="width:150px;">
-                                    </td>
-                                    <td>@item.CourseName</td>
-                                    <td>@item.UserBy</td>
-                                    <td><a href="#" class="btn-active" data-id="@item.ID">@(item.Status ? "Kích hoạt" : "Khoá")</a></td>
-                                    <td>
-                                        <a class="btn btn-info btn-sm" href="/Admin/Exam/Details/@item.ID">
-                                            <i class="fas fa-pencil-alt"></i>
-                                            Chi tiết
-                                        </a>
-                                        <a class="btn btn-primary btn-sm" href="/Admin/Exam/Edit/@item.ID">
-                                            <i class="fas fa-folder"></i>
-                                            Cập nhật
-                                        </a>
+                                                <img src="@item.Image" style="width:150px;">
+                                            </td>
+                                            <td>@item.CourseName</td>
+                                            <td>@item.UserBy</td>
+                                            <td><a href="#" class="btn-active" data-id="@item.ID">@(item.Status ? "Kích hoạt" : "Khoá")</a></td>
+                                            <td>
+                                                <a class="btn btn-info btn-sm" href="/Admin/Exam/Details/@item.ID">
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                    Chi tiết
+                                                </a>
+                                                <a class="btn btn-primary btn-sm" href="/Admin/Exam/Edit/@item.ID">
+                                                    <i class="fas fa-folder"></i>
+                                                    Cập nhật
+                                                </a>
 
-                                        @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
-                                   {
+                                                @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
+                                           {
 
-                                       Confirm = "Bạn có muốn xoá?",
-                                       OnComplete = "$('#row_" + item.ID + "').remove()",
-                                       HttpMethod = "Delete"
-                                   }, new { @class = "btn btn-danger btn-sm" })
+                                               Confirm = "Bạn có muốn xoá?",
+                                               OnComplete = "$('#row_" + item.ID + "').remove()",
+                                               HttpMethod = "Delete"
+                                           }, new { @class = "btn btn-danger btn-sm" })
 
 
-                                    </td>
-                                </tr>
+                                            </td>
+                                        </tr>
                                     }
                                 }
-</table>
+                        </table>
                         @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
                     </div>
                     <!-- /.card-body -->

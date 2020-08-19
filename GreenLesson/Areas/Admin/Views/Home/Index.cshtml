@@ -1,6 +1,8 @@
 ﻿
 @{
     Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+    var ques = ViewBag.Question;
+    int i = 0;
 }
 
 <div>
@@ -19,8 +21,6 @@
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-header -->
-    <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
@@ -595,8 +595,3 @@
         </div><!-- /.container-fluid -->
     </section>
 </div>
-
-@section ClientSrcipt
-{
-
-}

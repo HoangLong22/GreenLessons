@@ -1,0 +1,18 @@
+﻿@model Model.EF.Question
+@{
+    ViewBag.Title = "Import";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Question", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="card-body">
+        <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 250px;">
+                <input type="file" name="postedFile" />
+                <input type="submit" value="Import" />
+                </div>
+            </div>
+        </div>
+}
+

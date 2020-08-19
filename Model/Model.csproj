@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Dao\AboutDao.cs" />
     <Compile Include="Dao\CategoryDao.cs" />
+    <Compile Include="Dao\CategoryQuestionDao.cs" />
     <Compile Include="Dao\ContactDao.cs" />
     <Compile Include="Dao\CourseDao.cs" />
     <Compile Include="Dao\ExamDao.cs" />
@@ -69,9 +70,11 @@
     <Compile Include="Dao\LessonDao.cs" />
     <Compile Include="Dao\MenuDao.cs" />
     <Compile Include="Dao\NewDao.cs" />
+    <Compile Include="Dao\QuestionDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
     <Compile Include="EF\About.cs" />
     <Compile Include="EF\Category.cs" />
+    <Compile Include="EF\CategoryQuestion.cs" />
     <Compile Include="EF\Contact.cs" />
     <Compile Include="EF\Course.cs" />
     <Compile Include="EF\Credential.cs" />
@@ -82,6 +85,7 @@
     <Compile Include="EF\Lesson.cs" />
     <Compile Include="EF\Menu.cs" />
     <Compile Include="EF\New.cs" />
+    <Compile Include="EF\Question.cs" />
     <Compile Include="EF\Role.cs" />
     <Compile Include="EF\Section.cs" />
     <Compile Include="EF\SystemConfig.cs" />
