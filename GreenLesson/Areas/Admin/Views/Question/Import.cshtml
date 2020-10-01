@@ -6,13 +6,60 @@
 
 @using (Html.BeginForm("Index", "Question", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <div class="card-body">
+    <div class="card-header">
+        <h3 class="card-title">Nhập file câu hỏi</h3>
         <div class="card-tools">
-            <div class="input-group input-group-sm" style="width: 250px;">
-                <input type="file" name="postedFile" />
-                <input type="submit" value="Import" />
-                </div>
+            <ul class="pagination pagination-sm float-right">
+                <li class="page-item">
+                    <input type="file" name="postedFile" />
+                    <input type="submit" value="Import" />
+
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="post">
+            <div class="user-block">
+                <span class="username">
+                    <a href="#">Hướng dẫn nhập dữ liệu từ file Excel</a>
+                </span>
+            </div>
+            <div class="user-block">
+                <span class="">
+                    <a href="#">Bước 1:</a>
+                    <span>Chuẩn bị 1 file excel có nội dung dưới đây.</span>
+                </span>
+            </div>
+            <div class="">
+                <span class="">
+                    <img src="~/Data/images/hdsd.png" width="1090" />
+                </span>
+            </div>
+            <div class="user-block">
+                <span class="">
+                    <a href="#">Bước 2:</a>
+                    <span>Chọn vào "Chọn tệp" trên màn hình.</span>
+                </span>
+            </div>
+            <div class="user-block">
+                <span class="">
+                    <a href="#">Bước 3:</a>
+                    <span>Chọn file excel của bạn."</span>
+                </span>
+            </div>
+
+            <div class="user-block">
+                <span style="text-align:center;">
+                    <a href="#">Bước 4:</a>
+                    <span>Chọn vào "Nhập" đề hoàn tất Upload.</span>
+                </span>
             </div>
         </div>
+    </div>
+    
 }
+<div>
+    @Html.ActionLink("Quay lại", "Index")
+</div>
 

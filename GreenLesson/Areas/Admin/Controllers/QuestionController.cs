@@ -194,7 +194,7 @@ namespace GreenLesson.Areas.Admin.Controllers
                 if (result)
                 {
                     SetAlert("Cập nhật thành công", "success");
-                    return RedirectToAction("Index", "Lesson");
+                    return RedirectToAction("Index", "Question");
                 }
                 else
                 {

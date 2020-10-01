@@ -21,7 +21,7 @@ namespace Model.Dao
             IQueryable<Question> model = db.Questions;
             if (!string.IsNullOrEmpty(searchString))
             {
-                model = model.Where(x => x.Content.Contains(searchString));
+                model = model.Where(x => x.Content.Contains(searchString) || x.CategoryQuestion.Contains(searchString));
             }
             return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
@@ -71,7 +71,7 @@ namespace Model.Dao
                 questions.Answer3 = entity.Answer3;
                 questions.Answer4 = entity.Answer4;
                 questions.CorrectAnswer = entity.CorrectAnswer;
-                questions.C = DateTime.Now;
+                questions.CreatedDate = DateTime.Now;
                 db.SaveChanges();
                 return true;
             }
