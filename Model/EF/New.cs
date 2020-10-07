@@ -12,46 +12,49 @@
         public long ID { get; set; }
 
         [StringLength(50)]
-        [Display(Name = "Tên tin tức")]
+        [Display(Name = "New_Name", ResourceType = typeof(StaticResource.Resources))]
         public string Name { get; set; }
 
         [StringLength(50)]
-        [Display(Name = "Mô tả")]
+        [Display(Name = "Descriptions", ResourceType = typeof(StaticResource.Resources))]
         public string Description { get; set; }
 
         [StringLength(50)]
-        [Display(Name = "Meta Title")]
+        [Display(Name = "Meta_Title", ResourceType = typeof(StaticResource.Resources))]
         public string MetaTitle { get; set; }
 
-        [Display(Name = "Hình ảnh")]
+        [Display(Name = "Photo_Image", ResourceType = typeof(StaticResource.Resources))]
         public string Image { get; set; }
 
         [Column(TypeName = "ntext")]
-        [Display(Name = "Nôi dung")]
+        [Display(Name = "Content_New", ResourceType = typeof(StaticResource.Resources))]
         public string Content { get; set; }
 
         [StringLength(250)]
         public string MetaDescriptions { get; set; }
 
-        [Display(Name = "Ngày tạo")]
+        [Display(Name = "Day_Create", ResourceType = typeof(StaticResource.Resources))]
         public DateTime? CreatedDate { get; set; }
 
         [StringLength(50)]
-        [Display(Name = "Tên đăng nhập")]
+        [Display(Name = "Sign_Name", ResourceType = typeof(StaticResource.Resources))]
         public string ModifiedBy { get; set; }
 
         [StringLength(50)]
+        [Display(Name = "Create_By", ResourceType = typeof(StaticResource.Resources))]
         public string CreatedBy { get; set; }
 
         public string MetaKeywords { get; set; }
 
         public DateTime? ModifiedDate { get; set; }
 
-        [Display(Name = "Trạng thái")]
+        [Display(Name = "Status", ResourceType = typeof(StaticResource.Resources))]
         public bool Status { get; set; }
 
         [StringLength(50)]
-        [Display(Name = "Người tạo")]
+        [Display(Name = "User_Create", ResourceType = typeof(StaticResource.Resources))]
         public string UserBy { get; set; }
+
+        public String Language { get; set; }
     }
 }

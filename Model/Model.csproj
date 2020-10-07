@@ -106,6 +106,10 @@
       <Project>{3DBB5C9E-144A-4CF3-B6EF-07953630B126}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StaticResource\StaticResource.csproj">
+      <Project>{80a6b0ed-4735-42bd-b557-2b6be4253111}</Project>
+      <Name>StaticResource</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

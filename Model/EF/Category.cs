@@ -40,5 +40,7 @@
         public DateTime? ModifiedDate { get; set; }
 
         public bool Status { get; set; }
+
+        public String Language { get; set; }
     }
 }

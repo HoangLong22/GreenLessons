@@ -6337,6 +6337,7 @@
     <Content Include="Areas\Admin\Views\Question\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Question\Import.cshtml" />
     <Content Include="Areas\Admin\Views\Question\Edit.cshtml" />
+    <Content Include="libman.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\styles.js" />
     <Content Include="Scripts\ckeditor\vendor\promise.js" />
@@ -6405,6 +6406,10 @@
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{1d212da5-be9f-40af-a5f7-4c55ed65d67b}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StaticResource\StaticResource.csproj">
+      <Project>{80a6b0ed-4735-42bd-b557-2b6be4253111}</Project>
+      <Name>StaticResource</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

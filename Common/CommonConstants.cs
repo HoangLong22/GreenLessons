@@ -13,5 +13,7 @@ namespace Common
         public static string ADMIN_GROUP = "ADMIN";
 
             public static string MOD_GROUP = "MOD";
+
+        public static int CurrentCulture { get; set; }
     }
 }
