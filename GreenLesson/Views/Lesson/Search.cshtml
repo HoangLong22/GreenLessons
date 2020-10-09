@@ -1,0 +1,117 @@
+﻿@model List<Model.EF.Lesson>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="home-banner-area">
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-md-auto"></div>
+            <div class="col-md-11">
+                <div class="home-banner-wrap">
+                    <h2>Không ngừng truyền tải kiến thức</h2>
+                    <p>Nghiên cứu bất kỳ chủ đề, bất cứ lúc nào. Chia sẻ kho tiếng anh lớn nhất từ trước tới nay!</p>
+                    <form class="input" action="/Search" method="get">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="query" id="txtquery" placeholder="Bạn muốn tìm bài giảng nào?">
+                            <div class="input-group-append">
+                                <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="home-fact-area">
+    <div class="container-lg">
+        <div class="row">
+
+            <div class="col-md-4 d-flex">
+                <div class="home-fact-box mr-md-auto ml-auto mr-auto">
+                    <i class="fas fa-bullseye float-left"></i>
+                    <div class="text-box">
+                        <h4>
+                            Bài Giảng Trực Tuyến
+                        </h4>
+                        <p>Khám Phá Một Loạt Chủ Đề Nới</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 d-flex">
+                <div class="home-fact-box mr-md-auto ml-auto mr-auto">
+                    <i class="fa fa-check float-left"></i>
+                    <div class="text-box">
+                        <h4>Hướng Dẫn Chuyên Mô</h4>
+                        <p>Tìm Khóa Học Phù Hợp Với Bạn</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 d-flex">
+                <div class="home-fact-box mr-md-auto ml-auto mr-auto">
+                    <i class="fa fa-clock float-left"></i>
+                    <div class="text-box">
+                        <h4>Truy Cập Trọn Đời</h4>
+                        <p>Học Theo Lịch Trình Của Bạn</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="course-carousel-area">
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h2 class="course-carousel-title">Kết quả tìm kiếm cho: @ViewBag.Keyword</h2>
+            </div>
+            <div class="container">
+                <div class="row">
+                    @if (Model.Count > 0)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <div class="col-md-3">
+                                <div class="course-carousel">
+                                    <div class="course-box-wrap">
+                                        <a class="nav-link text-dark" href="bai-giang/@item.MetaTitle-@item.ID">
+                                            <div class="course-box">
+                                                <div class="course-image">
+                                                    <img src="@item.Image" alt="" class="img-fluid" style="width:auto; height:180px;">
+                                                </div>
+                                                <div class="course-details">
+                                                    <h5 class="title">@item.Name</h5>
+                                                    <p class="instructors">
+                                                        @item.UserBy
+                                                        <span class="rating">
+                                                            <i class="fas fa-star filled"></i>&nbsp
+                                                            <i class="fas fa-star filled"></i>
+                                                            <i class="fas fa-star filled"></i>
+                                                            <i class="fas fa-star filled"></i>
+                                                            <i class="fas fa-star filled"></i>
+                                                        </span>
+                                                    </p>
+                                                    <p class="category text-right"> @item.CategoryName</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <span>Không có bản ghi nào</span>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

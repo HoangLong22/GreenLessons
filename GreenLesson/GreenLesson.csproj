@@ -3747,6 +3747,7 @@
     <Content Include="Assets\Admin\vendor\select2\select2.min.js" />
     <Content Include="Assets\Admin\vendor\tilt\tilt.jquery.min.js" />
     <Content Include="Assets\Client\css\boostrap-social.css" />
+    <Content Include="Assets\Client\css\jquery-ui.css" />
     <Content Include="Assets\Client\css\site.css" />
     <Content Include="Assets\Client\css\style.css" />
     <Content Include="Assets\Client\data\Provinces_Data.xml" />
@@ -5395,9 +5396,11 @@
     <Content Include="Assets\Client\Image\Untitled-2.jpg" />
     <Content Include="Assets\Client\Image\Untitled-3.jpg" />
     <Content Include="Assets\Client\Image\Untitled-4.jpg" />
+    <Content Include="Assets\Client\js\Controller\baseController.js" />
     <Content Include="Assets\Client\js\Controller\contactController.js" />
     <Content Include="Assets\Client\js\Controller\userController.js" />
     <Content Include="Assets\Client\js\jquery-3.5.1.min.js" />
+    <Content Include="Assets\Client\js\jquery-ui.js" />
     <Content Include="Assets\Client\js\jquery.ajaxfileupload.js" />
     <Content Include="Assets\Client\js\site.js" />
     <Content Include="Assets\Client\lib\bootstrap\dist\css\bootstrap-grid.css" />
@@ -6376,6 +6379,7 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Shared\401.cshtml" />
     <Content Include="Views\Lesson\Detail.cshtml" />
+    <Content Include="Views\Lesson\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -91,5 +91,41 @@ namespace Model.Dao
                 return false;
             }
         }
+
+        public List<string> ListName(string query)
+        {
+            return db.Lessons.Where(x => x.Name.Contains(query)).Select(x => x.Name).ToList();
+        }
+
+        public List<Lesson> Search(string query, ref int totalRecord, int pageIndex = 1, int pageSize = 2)
+        {
+            totalRecord = db.Lessons.Where(x => x.Name == query).Count();
+            var model = (from a in db.Lessons
+                         join b in db.Categories
+                         on a.ID equals b.ID
+                         where a.Name.Contains(query)
+                         select new
+                         {
+                            
+                             CategoryName = b.Name,
+                             CreatedDate = a.CreatedDate,
+                             ID = a.ID,
+                             Image = a.Image,
+                             Name = a.Name,
+                             MetaTitle = a.MetaTitle,
+                         }).AsEnumerable().Select(x => new Lesson()
+                         {
+                            
+                             CategoryName = x.Name,
+                             CreatedDate = x.CreatedDate,
+                             ID = x.ID,
+                             Image = x.Image,
+                             Name = x.Name,
+                             MetaTitle = x.MetaTitle,
+                          
+                         });
+            model.OrderByDescending(x => x.CreatedDate).Skip((pageIndex - 1) * pageSize).Take(pageSize);
+            return model.ToList();
+        }
     }
 }

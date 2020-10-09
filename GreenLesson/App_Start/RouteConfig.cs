@@ -53,6 +53,14 @@ namespace GreenLesson
              namespaces: new[] { "GreenLesson.Controllers" }
          );
 
+
+            routes.MapRoute(
+              name: "Search",
+              url: "Search",
+              defaults: new { controller = "Lesson", action = "Search", id = UrlParameter.Optional },
+              namespaces: new[] { "GreenLesson.Controllers" }
+          );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
@@ -67,7 +75,7 @@ namespace GreenLesson
               namespaces: new[] { "GreenLesson.Controllers" }
           );
 
-          
+
         }
     }
 }
